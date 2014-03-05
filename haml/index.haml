@@ -11,13 +11,15 @@
   %link{ :rel => "stylesheet", :href => "app/styles/main.css"}
   %script{ :src => "vendor/modernizr/modernizr.js"}
 %body
-  %svg#svg
+  
   %div#container.clearfix
     %div#middle.three
       %h1#logo
         %a.hide-text May's portfolio
       %h2#name.hide-text May Kuo
-      %p#desc I am a front-end web developer.
+      %p.desc I am a front-end web developer.
+      %p.desc I can do HTML/HTML5, and
+      %p.desc#scroll (scroll down)
       %nav
         %ul
           %li
@@ -36,6 +38,14 @@
               %span.hover
                 %span.valign
                   %span.vertical Works
+    %div.section#sectionHTML
+      %svg#svg
+    %div.section#sectionCSS
+      %svg#svg1
+    %div.section#sectionJS
+      %svg#svg2
+    %div.section#sectionOTHER
+      %svg#svg3
   %script{ :"data-main" => "app/main", :src => "vendor/requirejs/require.js"}
 
 

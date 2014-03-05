@@ -112,8 +112,10 @@ body{
 #middle{
     text-align: center;
     // width: 243px;
-    // position: fixed;
-    margin: 50px auto;
+    position: fixed;
+    // margin: 50px auto;
+    margin-left: -14%;
+    left: 50%;
     #logo{
         a{
             display: block;
@@ -129,7 +131,10 @@ body{
         font-weight: normal;
         background: url(../img/name.png) no-repeat center 0;
     }
-    #desc{
+    .desc{
+        margin: 10px 0 10px;
+    }
+    .desc#scroll {
         margin: 10px 0 40px;
     }
     nav{
@@ -227,6 +232,10 @@ body{
 #svg {
     z-index: 1;
     position: absolute;
+}
+
+#sectionCSS {
+    background-color: #333;
 }
 
 

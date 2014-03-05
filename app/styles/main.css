@@ -527,7 +527,9 @@ body {
 
 #middle {
   text-align: center;
-  margin: 50px auto; }
+  position: fixed;
+  margin-left: -14%;
+  left: 50%; }
   #middle #logo a {
     display: block;
     width: 200px;
@@ -539,7 +541,9 @@ body {
     margin: 40px 0 0;
     font-weight: normal;
     background: url(../img/name.png) no-repeat center 0; }
-  #middle #desc {
+  #middle .desc {
+    margin: 10px 0 10px; }
+  #middle .desc#scroll {
     margin: 10px 0 40px; }
   #middle nav ul {
     list-style: none; }
@@ -604,6 +608,9 @@ body {
 #svg {
   z-index: 1;
   position: absolute; }
+
+#sectionCSS {
+  background-color: #333; }
 
 /* ==========================================================================
    Helper classes

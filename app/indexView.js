@@ -14,7 +14,7 @@ define([
 		},
 
 		events: {
-			// 'mousemove': 'doParallax'
+			
 		},
 
 		render: function() {
@@ -22,7 +22,9 @@ define([
 			var browserHeight = $(window).innerHeight();
 			console.log('browserWidth: ' + browserWidth);
 			console.log('browserHeight: ' + browserHeight);
+			$('.section').css('height', browserHeight);
 
+			//first svg
 			var s = Snap('#svg');
 			var triangles = [];
 			var trianglesGroup = s.group().attr({
@@ -62,6 +64,20 @@ define([
 				frictionX: 0.2,
 				frictionX: 0.8
 			});
+
+			var s1 = Snap('#svg1');
+			var rect = [];
+			var rectX, rectY;
+			for (var i = 0; i < 10; i ++) {
+				rectX = Math.random()*(browserWidth-10) + 1;
+				rectY = Math.random()*(browserHeight-10) + 1;
+				rect[i] = s1.rect(rectX, rectY, 10, 10);
+				rect[i].attr({
+					fill: '#71a5d0'
+				});
+			}
+			
+
 		}
 
 
