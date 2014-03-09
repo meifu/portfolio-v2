@@ -20,70 +20,53 @@ define([
 		render: function() {
 			var browserWidth = $(window).innerWidth();
 			var browserHeight = $(window).innerHeight();
-			console.log('browserWidth: ' + browserWidth);
-			console.log('browserHeight: ' + browserHeight);
+			// console.log('browserWidth: ' + browserWidth);
+			// console.log('browserHeight: ' + browserHeight);
 			$('.section').css('height', browserHeight);
 
-			//first svg
-			var s = Snap('#svg');
-			var triangles = [];
-			var trianglesGroup = s.group().attr({
-				'data-depth': "0.40",
-				'class': 'layer'
-			});
-			var x1, y1, x2, y2, x3, y3;
-			for (var i = 0; i < 10; i++) {
-				x1 = Math.random()*(browserWidth-10) + 1;
-				y1 = Math.random()*(browserHeight-10) + 1;
-				x2 = x1 + 20;
-				y2 = y1;
-				x3 = x1 + 10;
-				y3 = y1 + 15;
-				triangles[i] = s.polygon([x1, y1, x2, y2, x3, y3]);
-				triangles[i].attr({
-					fill: '#888',
-					opacity: 0
+			var s1Left = Snap('#svg1left');
+			var s1Right = Snap('#svg1right');
+			// var rectx, recty;
+			var rectxLeft = [], rectyLeft = [], rectLeft = [], side1Left = [], side2Left = [], rectxRight = [], rectRight = [], side1Right = [], side2Right = [];
+			for (var i = 0; i < 5; i++) {
+				var svg1xRange = Math.floor((browserWidth*0.4)/48); //console.log('svg1xRange: ' + svg1xRange);
+				var svg1yRange = Math.floor((browserHeight)/48);
+
+				rectxLeft[i] = Math.floor((Math.random()*svg1xRange) + 1)*48;
+				rectyLeft[i] = Math.random()*svg1yRange*48;
+				rectLeft[i] = s1Left.rect(rectxLeft[i], rectyLeft[i], 18, 18);
+				rectLeft[i].attr({
+					'fill': '#a0a0a0'
 				});
-				trianglesGroup.add(triangles[i]);
+				side1Left[i] = s1Left.polygon(rectxLeft[i] + 18, rectyLeft[i], rectxLeft[i] + 24, rectyLeft[i] + 9, rectxLeft[i] + 24, rectyLeft[i] + 27, rectxLeft[i] + 18, rectyLeft[i] + 18);
+				side1Left[i].attr({
+					'fill': '#ccc'
+				});
+				side2Left[i] = s1Left.polygon(rectxLeft[i], rectyLeft[i] + 18, rectxLeft[i] + 18, rectyLeft[i] + 18, rectxLeft[i] + 24, rectyLeft[i] + 27, rectxLeft[i] + 6, rectyLeft[i] + 27);
+				side2Left[i].attr({
+					'fill': '#555'
+				});
+				
+				rectxRight[i] = Math.floor((Math.random()*svg1xRange) + 1)*48 + browserWidth*0.1;
+				rectRight[i] = s1Right.rect(rectxRight[i], rectyLeft[i], 18, 18);
+				rectRight[i].attr({
+					'fill': '#6FB7F7'
+				});
+				side1Right[i] = s1Right.polygon(rectxRight[i] + 18, rectyLeft[i], rectxRight[i] + 24, rectyLeft[i] + 9, rectxRight[i] + 24, rectyLeft[i] + 27, rectxRight[i] + 18, rectyLeft[i] + 18);
+				side1Right[i].attr({
+					'fill': '#6FF7E0'
+				});
+				side2Right[i] = s1Right.polygon(rectxRight[i], rectyLeft[i] + 18, rectxRight[i] + 18, rectyLeft[i] + 18, rectxRight[i] + 24, rectyLeft[i] + 27, rectxRight[i] + 6, rectyLeft[i] + 27);
+				side2Right[i].attr({
+					'fill': '#6A4582'
+				});
+
 			}
 			
-			var mouseX, mouseY, directionX, directionY, tstr;
-			triangles.forEach(function(item){
-				item.animate({opacity: 1}, 600, function(){});
-			});
-
-			$('#svg').parallax({
-				calibrateX: false,
-				calibrateY: false,
-				invertX: true,
-				invertY: true,
-				limitX: false,
-				limitY: 10,
-				scalarX: 2,
-				scalarY: 8,
-				frictionX: 0.2,
-				frictionX: 0.8
-			});
-
-			var s1 = Snap('#svg1');
-			var rect = [];
-			var rectX, rectY;
-			for (var i = 0; i < 10; i ++) {
-				rectX = Math.random()*(browserWidth-10) + 1;
-				rectY = Math.random()*(browserHeight-10) + 1;
-				rect[i] = s1.rect(rectX, rectY, 10, 10);
-				rect[i].attr({
-					fill: '#71a5d0'
-				});
-			}
 			
 
 		}
 
-
-		// doParallax: function() {
-		// 	console.log('test events');
-		// }
 
 	});
 

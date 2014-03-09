@@ -229,9 +229,14 @@ body{
     }
 }
 
-#svg {
+#svg1left, #svg1right {
     z-index: 1;
     position: absolute;
+    width: 50%;
+}
+
+#svg1right {
+    right: 0;
 }
 
 #sectionCSS {
