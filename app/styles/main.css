@@ -529,7 +529,8 @@ body {
   text-align: center;
   position: fixed;
   margin-left: -14%;
-  left: 50%; }
+  left: 50%;
+  z-index: 99; }
   #middle #logo a {
     display: block;
     width: 200px;
@@ -605,12 +606,12 @@ body {
         -o-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, -112, 0, 0, 1);
         transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, -112, 0, 0, 1); }
 
-#svg1left, #svg1right {
+#svg1left, #svg1right, #svg2left, #svg2right, #svg3left, #svg3right, #svg4left, #svg4right {
   z-index: 1;
   position: absolute;
   width: 50%; }
 
-#svg1right {
+#svg1right, #svg2right, #svg3right, #svg4right {
   right: 0; }
 
 #sectionCSS {
