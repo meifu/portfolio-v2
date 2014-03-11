@@ -614,7 +614,7 @@ body {
 #svg1right, #svg2right, #svg3right, #svg4right {
   right: 0; }
 
-#sectionCSS {
+#sectionCSS, #sectionOTHER {
   background-color: #333; }
 
 /* ==========================================================================

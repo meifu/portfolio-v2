@@ -36,30 +36,30 @@ define([
 
 				rectxLeft = Math.floor((Math.random()*svg1xRange) + 1)*48;
 				rectyLeft = Math.random()*svg1yRange*48;
-				rectLeft[i] = s1Left.rect(rectxLeft, rectyLeft, 18, 18);
+				rectLeft[i] = s1Left.rect(rectxLeft, rectyLeft, 12, 12);
 				rectLeft[i].attr({
 					'fill': '#a0a0a0'
 				});
-				side1Left[i] = s1Left.polygon(rectxLeft + 18, rectyLeft, rectxLeft + 24, rectyLeft + 9, rectxLeft + 24, rectyLeft + 27, rectxLeft + 18, rectyLeft + 18);
+				side1Left[i] = s1Left.polygon(rectxLeft + 12, rectyLeft, rectxLeft + 16, rectyLeft + 6, rectxLeft + 16, rectyLeft + 18, rectxLeft + 12, rectyLeft + 12);
 				side1Left[i].attr({
 					'fill': '#ccc'
 				});
-				side2Left[i] = s1Left.polygon(rectxLeft, rectyLeft + 18, rectxLeft + 18, rectyLeft + 18, rectxLeft + 24, rectyLeft + 27, rectxLeft + 6, rectyLeft + 27);
+				side2Left[i] = s1Left.polygon(rectxLeft, rectyLeft + 12, rectxLeft + 12, rectyLeft + 12, rectxLeft + 16, rectyLeft + 16, rectxLeft + 4, rectyLeft + 16);
 				side2Left[i].attr({
 					'fill': '#555'
 				});
 				
 				rectxRight = Math.floor((Math.random()*svg1xRange) + 1)*48 + browserWidth*0.1;
 				rectyRight = Math.random()*svg1yRange*48;
-				rectRight[i] = s1Right.rect(rectxRight, rectyRight, 18, 18);
+				rectRight[i] = s1Right.rect(rectxRight, rectyRight, 12, 12);
 				rectRight[i].attr({
 					'fill': '#6FB7F7'
 				});
-				side1Right[i] = s1Right.polygon(rectxRight + 18, rectyRight, rectxRight + 24, rectyRight + 9, rectxRight + 24, rectyRight + 27, rectxRight + 18, rectyRight + 18);
+				side1Right[i] = s1Right.polygon(rectxRight + 12, rectyRight, rectxRight + 16, rectyRight + 6, rectxRight + 16, rectyRight + 18, rectxRight + 12, rectyRight + 12);
 				side1Right[i].attr({
 					'fill': '#6FF7E0'
 				});
-				side2Right[i] = s1Right.polygon(rectxRight, rectyRight + 18, rectxRight + 18, rectyRight + 18, rectxRight + 24, rectyRight + 27, rectxRight + 6, rectyRight + 27);
+				side2Right[i] = s1Right.polygon(rectxRight, rectyRight + 12, rectxRight + 12, rectyRight + 12, rectxRight + 16, rectyRight + 16, rectxRight + 4, rectyRight + 16);
 				side2Right[i].attr({
 					'fill': '#6A4582'
 				});
@@ -75,7 +75,7 @@ define([
 			for (var i = 0; i < 5; i ++) {
 				triang1xLeft = Math.floor(Math.random()*svg1xRange + 1)*48;
 				triang1yLeft = Math.floor(Math.random()*svg1yRange + 1)*48;
-				triang1xRight = Math.floor(Math.random()*svg1xRange + 1)*48/* + browserWidth*0.6*/;
+				triang1xRight = Math.floor(Math.random()*svg1xRange + 1)*48 + browserWidth*0.1;
 				triang1yRight = Math.floor(Math.random()*svg1yRange + 1)*48;
 				triang1Left[i] = s2Left.polygon(triang1xLeft, triang1yLeft, triang1xLeft + 12, triang1yLeft - 17, triang1xLeft + 12, triang1yLeft - 3);
 				triang2Left[i] = s2Left.polygon(triang1xLeft + 12, triang1yLeft - 17, triang1xLeft + 12, triang1yLeft - 3, triang1xLeft + 22, triang1yLeft + 5);
@@ -109,21 +109,37 @@ define([
 			var s3Left = Snap('#svg3left');
 			var s3Right = Snap('#svg3right');
 			var triPrism1x, triPrism1y;
-			var triPrism1 = [], triPrism2 = [], triPrism3 = [];
+			var triPrism1Left = [], triPrism2Left = [], triPrism3Left = [], triPrism1Right = [], triPrism2Right = [], triPrism3Right = [];
 
 			for (var i = 0; i < 5; i++) {
 				triPrism1x = Math.floor(Math.random()*svg1xRange + 1)*48;
 				triPrism1y = Math.floor(Math.random()*svg1yRange + 1)*48;
-				triPrism1[i] = s3Left.polygon(triPrism1x, triPrism1y, triPrism1x + 18, triPrism1y + 4, triPrism1x + 10, triPrism1y + 12);
-				triPrism2[i] = s3Left.polygon(triPrism1x, triPrism1y, triPrism1x + 10, triPrism1y + 12, triPrism1x + 10, triPrism1y + 20, triPrism1x, triPrism1y + 8);
-				triPrism3[i] = s3Left.polygon(triPrism1x + 10, triPrism1y + 12, triPrism1x + 18, triPrism1y + 4, triPrism1x + 18, triPrism1y + 12, triPrism1x + 10, triPrism1y + 20);
-				triPrism1[i].attr({
+				triPrism1xR = Math.floor(Math.random()*svg1xRange + 1)*48;
+				triPrism1yR = Math.floor(Math.random()*svg1yRange + 1)*48;
+				triPrism1Left[i] = s3Left.polygon(triPrism1x, triPrism1y, triPrism1x + 18, triPrism1y + 4, triPrism1x + 10, triPrism1y + 12);
+				triPrism2Left[i] = s3Left.polygon(triPrism1x, triPrism1y, triPrism1x + 10, triPrism1y + 12, triPrism1x + 10, triPrism1y + 20, triPrism1x, triPrism1y + 8);
+				triPrism3Left[i] = s3Left.polygon(triPrism1x + 10, triPrism1y + 12, triPrism1x + 18, triPrism1y + 4, triPrism1x + 18, triPrism1y + 12, triPrism1x + 10, triPrism1y + 20);
+
+				triPrism1Right[i] = s3Right.polygon(triPrism1xR, triPrism1yR, triPrism1xR + 18, triPrism1yR + 4, triPrism1xR + 10, triPrism1yR + 12);
+				triPrism2Right[i] = s3Right.polygon(triPrism1xR, triPrism1yR, triPrism1xR + 10, triPrism1yR + 12, triPrism1xR + 10, triPrism1yR + 20, triPrism1xR, triPrism1yR + 8);
+				triPrism3Right[i] = s3Right.polygon(triPrism1xR + 10, triPrism1yR + 12, triPrism1xR + 18, triPrism1yR + 4, triPrism1xR + 18, triPrism1yR + 12, triPrism1xR + 10, triPrism1yR + 20);
+
+				triPrism1Left[i].attr({
 					'fill': '#8d8d8d'
 				});
-				triPrism2[i].attr({
+				triPrism2Left[i].attr({
 					'fill': '#666'
 				});
-				triPrism3[i].attr({
+				triPrism3Left[i].attr({
+					'fill': '#ccc'
+				});
+				triPrism1Right[i].attr({
+					'fill': '#8d8d8d'
+				});
+				triPrism2Right[i].attr({
+					'fill': '#666'
+				});
+				triPrism3Right[i].attr({
 					'fill': '#ccc'
 				});
 			}
@@ -132,13 +148,43 @@ define([
 			var s4Left = Snap('#svg4left');
 			var s4Right = Snap('#svg4right');
 			var pentagonX, pentagonY;
-			var penta = [], pentaSide1 = [], pentaSide2 = [];
-			pentagonX = Math.floor(Math.random()*svg1xRange + 1)*48;
-			pentagonY = Math.floor(Math.random()*svg1yRange + 1)*48;
-			penta[0] = s4Left.polygon(pentagonX, pentagonY, pentagonX + 6, pentagonY -5, pentagonX + 9, pentagonY, pentagonX + 7, pentagonY + 8, pentagonX + 3, pentagonY + 8); 
-			penta[0].attr({
-				'fill': '#ccc'
-			});
+			var pentaL = [], pentaSide1L = [], pentaSide2L = [],
+			    pentaR = [], pentaSide1R = [], pentaSide2R = [];
+
+			for (var i = 0; i < 5; i++) {
+				pentagonX = Math.floor(Math.random()*svg1xRange + 1)*48;
+				pentagonY = Math.floor(Math.random()*svg1yRange + 1)*48;
+				pentagonXR = Math.floor(Math.random()*svg1xRange + 1)*48 + browserWidth*0.1;
+				pentagonYR = Math.floor(Math.random()*svg1yRange + 1)*48;
+				pentaL[i] = s4Left.polygon(pentagonX, pentagonY, pentagonX + 6, pentagonY - 7, pentagonX + 12, pentagonY + 1, pentagonX + 9, pentagonY + 10, pentagonX + 3, pentagonY + 9); 
+				pentaSide1L[i] = s4Left.polygon(pentagonX + 6, pentagonY -7, pentagonX + 14, pentagonY -7, pentagonX + 19, pentagonY + 1, pentagonX + 12, pentagonY + 1);
+				pentaSide2L[i] = s4Left.polygon(pentagonX + 12, pentagonY + 1, pentagonX + 19, pentagonY + 1, pentagonX + 15, pentagonY + 10, pentagonX + 9, pentagonY + 10);
+
+				pentaR[i] = s4Right.polygon(pentagonXR, pentagonYR, pentagonXR + 6, pentagonYR - 7, pentagonXR + 12, pentagonYR + 1, pentagonXR + 9, pentagonYR + 10, pentagonXR + 3, pentagonYR + 9); 
+				pentaSide1R[i] = s4Right.polygon(pentagonXR + 6, pentagonYR -7, pentagonXR + 14, pentagonYR -7, pentagonXR + 19, pentagonYR + 1, pentagonXR + 12, pentagonYR + 1);
+				pentaSide2R[i] = s4Right.polygon(pentagonXR + 12, pentagonYR + 1, pentagonXR + 19, pentagonYR + 1, pentagonXR + 15, pentagonYR + 10, pentagonXR + 9, pentagonYR + 10);
+
+				pentaL[i].attr({
+					'fill': '#888'
+				});
+				pentaSide1L[i].attr({
+					'fill': '#ccc'
+				});
+				pentaSide1L[i].attr({
+					'fill': '#777'
+				});
+				pentaR[i].attr({
+					'fill': '#888'
+				});
+				pentaSide1R[i].attr({
+					'fill': '#ccc'
+				});
+				pentaSide1R[i].attr({
+					'fill': '#777'
+				});
+
+			}
+			
 
 		}
 
