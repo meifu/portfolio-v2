@@ -1,20 +1,22 @@
 define([
-	'jquery',
-	'underscore',
-	'backbone',
-	'snap',
-	'parallax'
-], function($, _, Backbone, Snap, Parallax) {
+	'jquery'
+	,'underscore'
+	,'backbone'
+	,'snap'
+	,'parallax'
+	,'text!templates/navTempl.html'
+], function($, _, Backbone, Snap, Parallax, NavTempl) {
 	var IndexView = Backbone.View.extend({
 		el: $('#container'),
 
 		initialize: function() {
 			// console.log('IndexView');
 			this.render();
+			$(window).scroll(this.detectScroll);
 		},
 
 		events: {
-			
+			// 'scroll .section': 'detectScroll'
 		},
 
 		render: function() {
@@ -23,6 +25,8 @@ define([
 			// console.log('browserWidth: ' + browserWidth);
 			// console.log('browserHeight: ' + browserHeight);
 			$('.section').css('height', browserHeight);
+			var nav_template = _.template(NavTempl);
+			$('#middle').html(nav_template);
 
 			/********* Section1 ************/
 			var s1Left = Snap('#svg1left');
@@ -67,6 +71,22 @@ define([
 			}
 
 			/********* Section2 ************/ 
+			this.showSecTwo(svg1xRange, svg1yRange, browserWidth);
+
+			/********* Section3 ************/ 
+			this.showSecThree(svg1xRange, svg1yRange, browserWidth);
+			
+			/********* Section4 ************/ 
+			this.showSecFour(svg1xRange, svg1yRange, browserWidth);
+			
+
+		}, //end render
+
+		detectScroll: function() {
+			console.log('you are scrolling at ' + $(window).scrollTop());
+		},
+
+		showSecTwo: function(svg1xRange, svg1yRange, browserWidth) {
 			var s2Left = Snap('#svg2left');
 			var s2Right = Snap('#svg2right');
 			var triang1xLeft, triang1yLeft, triang1Left = [], triang2Left = [], triang3Left = [],
@@ -104,8 +124,9 @@ define([
 				});
 
 			}
+		},
 
-			/********* Section3 ************/ 
+		showSecThree: function(svg1xRange, svg1yRange, browserWidth) {
 			var s3Left = Snap('#svg3left');
 			var s3Right = Snap('#svg3right');
 			var triPrism1x, triPrism1y;
@@ -143,8 +164,9 @@ define([
 					'fill': '#ccc'
 				});
 			}
-			
-			/********* Section4 ************/ 
+		},
+
+		showSecFour: function(svg1xRange, svg1yRange, browserWidth) {
 			var s4Left = Snap('#svg4left');
 			var s4Right = Snap('#svg4right');
 			var pentagonX, pentagonY;
@@ -183,12 +205,8 @@ define([
 					'fill': '#777'
 				});
 
-			}
-			
-
+			} //end for
 		}
-
-
 
 	});
 

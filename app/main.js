@@ -9,13 +9,14 @@
 
 require.config({
 	paths: {
-		"vendor": "../vendor",
-	    "almond": "../vendor/almond/almond",
+		"vendor"      : "../vendor",
+	    "almond"    : "../vendor/almond/almond",
 	    "underscore": "../vendor/lodash/dist/lodash.underscore",
-	    "jquery": "../vendor/jquery/dist/jquery",
-	    "backbone": "../vendor/backbone/backbone",
-	    "snap": "../vendor/Snap.svg/dist/snap.svg-min",
-	    "parallax": "../vendor/parallax/deploy/jquery.parallax.min"
+	    "jquery"    : "../vendor/jquery/dist/jquery",
+	    "backbone"  : "../vendor/backbone/backbone",
+	    "snap"      : "../vendor/Snap.svg/dist/snap.svg-min",
+	    "parallax"  : "../vendor/parallax/deploy/jquery.parallax.min",
+	    "text"      : "../vendor/requirejs-text/text"
 	}
 });
 

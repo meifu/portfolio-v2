@@ -44,7 +44,8 @@ module.exports = function(grunt) {
     haml: {
       dist: {
         files: {
-          'index.html': 'haml/index.haml'
+          'index.html': 'haml/index.haml',
+          'app/templates/navTempl.html': 'haml/templates/navTempl.haml'
         }
       }
     },
@@ -86,7 +87,7 @@ module.exports = function(grunt) {
         tasks: ['sass']
       },
       html: {
-        files: 'haml/*.haml',
+        files: ['haml/*.haml', 'haml/templates/*.haml'],
         tasks: ['haml']
       }
     },
