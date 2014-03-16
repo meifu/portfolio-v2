@@ -542,8 +542,10 @@ body {
     margin: 40px 0 0;
     font-weight: normal;
     background: url(../img/name.png) no-repeat center 0; }
-  #middle .desc {
+  #middle .desc, #middle .skill {
     margin: 10px 0 10px; }
+  #middle .skill {
+    font-size: 20px; }
   #middle .desc#scroll {
     margin: 10px 0 40px; }
   #middle nav ul {
@@ -608,8 +610,11 @@ body {
 
 #svg1left, #svg1right, #svg2left, #svg2right, #svg3left, #svg3right, #svg4left, #svg4right {
   z-index: 1;
-  position: absolute;
+  position: fixed;
   width: 50%; }
+
+#svg2left, #svg2right, #svg3left, #svg3right, #svg4left, #svg4right {
+  display: none; }
 
 #svg1right, #svg2right, #svg3right, #svg4right {
   right: 0; }

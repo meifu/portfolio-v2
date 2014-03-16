@@ -5,43 +5,57 @@ define([
 	,'snap'
 	,'parallax'
 	,'text!templates/navTempl.html'
-], function($, _, Backbone, Snap, Parallax, NavTempl) {
+	,'model/SkillModel'
+], function($, _, Backbone, Snap, Parallax, NavTempl, SkillModel) {
+	var self;
 	var IndexView = Backbone.View.extend({
 		el: $('#container'),
 
+		model: SkillModel,
+
 		initialize: function() {
-			// console.log('IndexView');
 			this.render();
+			self = this;
+			// console.log('this model ' + Object.keys(SkillModel.attributes));
+			this.self = this;
 			$(window).scroll(this.detectScroll);
 		},
 
+		browserHeight: $(window).innerHeight(),
+		browserWidth: $(window).innerWidth(),
+		rectLeft: [],
+		rectRight: [],
+		rectanglesLeft: [],
+		rectanglesRight: [],
 		events: {
 			// 'scroll .section': 'detectScroll'
 		},
 
 		render: function() {
-			var browserWidth = $(window).innerWidth();
-			var browserHeight = $(window).innerHeight();
+			this.browserWidth = $(window).innerWidth();
+			this.browserHeight = $(window).innerHeight();
 			// console.log('browserWidth: ' + browserWidth);
 			// console.log('browserHeight: ' + browserHeight);
-			$('.section').css('height', browserHeight);
+			$('.section').css('height', this.browserHeight);
 			var nav_template = _.template(NavTempl);
 			$('#middle').html(nav_template);
+			console.log('test model: ' + SkillModel.attributes.description[0]);
+			$('.skill').last().after('<p>haha</p>');
 
 			/********* Section1 ************/
 			var s1Left = Snap('#svg1left');
 			var s1Right = Snap('#svg1right');
 			// var rectx, recty;
-			var rectxLeft, rectyLeft, rectLeft = [], side1Left = [], side2Left = [], 
-			    rectxRight, rectyRight, rectRight = [], side1Right = [], side2Right = [];
+			var rectxLeft, rectyLeft, side1Left = [], side2Left = [], 
+			    rectxRight, rectyRight, side1Right = [], side2Right = [];
 			for (var i = 0; i < 5; i++) {
-				var svg1xRange = Math.floor((browserWidth*0.4)/48); //console.log('svg1xRange: ' + svg1xRange);
-				var svg1yRange = Math.floor((browserHeight)/48);
+				var svg1xRange = Math.floor((this.browserWidth*0.4)/48); //console.log('svg1xRange: ' + svg1xRange);
+				var svg1yRange = Math.floor((this.browserHeight)/48);
 
 				rectxLeft = Math.floor((Math.random()*svg1xRange) + 1)*48;
 				rectyLeft = Math.random()*svg1yRange*48;
-				rectLeft[i] = s1Left.rect(rectxLeft, rectyLeft, 12, 12);
-				rectLeft[i].attr({
+				this.rectLeft[i] = s1Left.rect(rectxLeft, rectyLeft, 12, 12);
+				this.rectLeft[i].attr({
 					'fill': '#a0a0a0'
 				});
 				side1Left[i] = s1Left.polygon(rectxLeft + 12, rectyLeft, rectxLeft + 16, rectyLeft + 6, rectxLeft + 16, rectyLeft + 18, rectxLeft + 12, rectyLeft + 12);
@@ -52,11 +66,12 @@ define([
 				side2Left[i].attr({
 					'fill': '#555'
 				});
-				
-				rectxRight = Math.floor((Math.random()*svg1xRange) + 1)*48 + browserWidth*0.1;
+				this.rectanglesLeft[i] = s1Left.g(this.rectLeft[i], side1Left[i], side2Left[i]);
+
+				rectxRight = Math.floor((Math.random()*svg1xRange) + 1)*48 + this.browserWidth*0.1;
 				rectyRight = Math.random()*svg1yRange*48;
-				rectRight[i] = s1Right.rect(rectxRight, rectyRight, 12, 12);
-				rectRight[i].attr({
+				this.rectRight[i] = s1Right.rect(rectxRight, rectyRight, 12, 12);
+				this.rectRight[i].attr({
 					'fill': '#6FB7F7'
 				});
 				side1Right[i] = s1Right.polygon(rectxRight + 12, rectyRight, rectxRight + 16, rectyRight + 6, rectxRight + 16, rectyRight + 18, rectxRight + 12, rectyRight + 12);
@@ -67,23 +82,37 @@ define([
 				side2Right[i].attr({
 					'fill': '#6A4582'
 				});
+				this.rectanglesRight[i] = s1Right.g(this.rectRight[i], side1Right[i], side2Right[i]);
 
 			}
+			
 
 			/********* Section2 ************/ 
-			this.showSecTwo(svg1xRange, svg1yRange, browserWidth);
+			this.showSecTwo(svg1xRange, svg1yRange, this.browserWidth);
 
 			/********* Section3 ************/ 
-			this.showSecThree(svg1xRange, svg1yRange, browserWidth);
+			this.showSecThree(svg1xRange, svg1yRange, this.browserWidth);
 			
 			/********* Section4 ************/ 
-			this.showSecFour(svg1xRange, svg1yRange, browserWidth);
+			this.showSecFour(svg1xRange, svg1yRange, this.browserWidth);
 			
 
 		}, //end render
 
 		detectScroll: function() {
-			console.log('you are scrolling at ' + $(window).scrollTop());
+			// console.log('the rect ' + self.rectLeft);
+			var browserHeight = $(window).innerHeight();
+			// console.log('you are scrolling at ' + $(window).scrollTop());
+			var changeDistance = browserHeight*0.5;
+			var translateY = -$(window).scrollTop()*0.2;
+			if ($(window).scrollTop() >= changeDistance) {
+				self.rectanglesLeft.forEach(function(item, index){
+					item.animate({'transform': 't0 ' + translateY}, 1);
+				});
+				self.rectanglesRight.forEach(function(item, index){
+					item.animate({'transform': 't0 ' + translateY}, 1);
+				});
+			}
 		},
 
 		showSecTwo: function(svg1xRange, svg1yRange, browserWidth) {
