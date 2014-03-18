@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
 /*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 /*
  * What follows is the result of much research on cross-browser styling.
@@ -7,7 +8,6 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
 html {
   color: #525252;
   font-size: 1em;
@@ -611,10 +611,9 @@ body {
 #svg1left, #svg1right, #svg2left, #svg2right, #svg3left, #svg3right, #svg4left, #svg4right {
   z-index: 1;
   position: fixed;
-  width: 50%; }
-
-#svg2left, #svg2right, #svg3left, #svg3right, #svg4left, #svg4right {
-  display: none; }
+  width: 50%;
+  display: none;
+  top: 0px; }
 
 #svg1right, #svg2right, #svg3right, #svg4right {
   right: 0; }

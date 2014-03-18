@@ -237,9 +237,8 @@ body{
     z-index: 1;
     position: fixed;
     width: 50%;
-}
-#svg2left, #svg2right, #svg3left, #svg3right, #svg4left, #svg4right {
     display: none;
+    top: 0px;
 }
 
 #svg1right, #svg2right, #svg3right, #svg4right {
