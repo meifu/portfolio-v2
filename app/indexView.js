@@ -23,12 +23,15 @@ define([
 
 		browserHeight: $(window).innerHeight(),
 		browserWidth: $(window).innerWidth(),
-		// rectLeft: [],
-		// rectRight: [],
-		rectanglesLeft: [],
-		rectanglesRight: [],
+		
+		Elements_sec1Left: [],
+		Elements_sec1Right: [],
 		Elements_sec2Left: [],
 		Elements_sec2Right: [],
+		Elements_sec3Left: [],
+		Elements_sec3Right: [],
+		Elements_sec4Left: [],
+		Elements_sec4Right: [],
 		svg1xRange: 0,
 		svg1yRange: 0,
 		events: {
@@ -43,8 +46,8 @@ define([
 			$('.section').css('height', this.browserHeight);
 			var nav_template = _.template(NavTempl);
 			$('#middle').html(nav_template);
-			console.log('test model: ' + SkillModel.attributes.description[0]);
-			$('.skill').last().after('<p>haha</p>');
+			// console.log('test model: ' + SkillModel.attributes.description[0]);
+			$('.skill').last().html(SkillModel.attributes.description[0]);
 
 			/********* Section1 ************/
 			var s1Left = Snap('#svg1left');
@@ -70,7 +73,7 @@ define([
 				side2Left[i].attr({
 					'fill': '#555'
 				});
-				this.rectanglesLeft[i] = s1Left.g(rectLeft[i], side1Left[i], side2Left[i]);
+				this.Elements_sec1Left[i] = s1Left.g(rectLeft[i], side1Left[i], side2Left[i]);
 
 				rectxRight = Math.floor((Math.random()*this.svg1xRange) + 1)*48 + this.browserWidth*0.1;
 				rectyRight = Math.random()*this.svg1yRange*48;
@@ -86,7 +89,7 @@ define([
 				side2Right[i].attr({
 					'fill': '#6A4582'
 				});
-				this.rectanglesRight[i] = s1Right.g(rectRight[i], side1Right[i], side2Right[i]);
+				this.Elements_sec1Right[i] = s1Right.g(rectRight[i], side1Right[i], side2Right[i]);
 
 			}
 			
@@ -108,23 +111,33 @@ define([
 			// console.log('the rect ' + self.rectLeft);
 			var browserHeight = $(window).innerHeight();
 			// console.log('you are scrolling at ' + $(window).scrollTop());
-			var changeDistance1 = browserHeight;
-			var changeDistance2 = browserHeight*2;
-			var changeDistance3 = browserHeight*3;
+			var bufferPercent = 0.3;
+			var changeDistance1 = browserHeight*(1-bufferPercent);
+			var changeDistance2 = browserHeight*(2-bufferPercent);
+			var changeDistance3 = browserHeight*(3-bufferPercent);
 
 			var translateY1 = -$(window).scrollTop()*0.7;
-			var translateY2 = -$(window).scrollTop()*0.5;
+			var translateY2 = -$(window).scrollTop()*0.8 + browserHeight;
+			var translateY3 = -$(window).scrollTop()*0.8 + browserHeight*2;
+			var translateY4 = -$(window).scrollTop()*0.8 + browserHeight*3;
+
+			
 			/****** section 1 ******/
 			if ($(window).scrollTop() < changeDistance1) { 
-				self.rectanglesLeft.forEach(function(item, index){
-					item.animate({'transform': 't0 ' + translateY1}, 1);
+				var opacityChange1 = (1 - $(window).scrollTop()/browserHeight*1.7);
+				self.Elements_sec1Left.forEach(function(item, index){
+					item.animate({'transform': 't0 ' + translateY1, 'opacity': opacityChange1}, 1);
 				});
-				self.rectanglesRight.forEach(function(item, index){
-					item.animate({'transform': 't0 ' + translateY1}, 1);
+				self.Elements_sec1Right.forEach(function(item, index){
+					item.animate({'transform': 't0 ' + translateY1, 'opacity': opacityChange1}, 1);
 				});
 
 				$('#svg2left').fadeOut();
 				$('#svg2right').fadeOut();
+				//remove skill words
+				if ($('.skill').last().data('order') === 2) {
+					$('.skill').last().remove();
+				}
 			/****** section 2 ******/
 			} else if (($(window).scrollTop() >= changeDistance1) && ($(window).scrollTop() < changeDistance2)) {
 				self.showAndHide(2);
@@ -134,13 +147,51 @@ define([
 				self.Elements_sec2Right.forEach(function(item, index){
 					item.animate({'transform': 't0 ' + translateY2}, 1);
 				});
+
+				//remove skill words
+				if ($('.skill').last().data('order') === 3) {
+					$('.skill').last().remove();
+				}
+				//change skill words
+				if ($('.skill').last().data('order') !== 2) {
+					$('.skill').last().after('<p class="skill" data-order="2">' + SkillModel.attributes.description[1] + '</p>');
+				}
+
+				// self.flyAway(1);
+				
 			/****** section 3 ******/
 			} else if (($(window).scrollTop() >= changeDistance2) && ($(window).scrollTop() < changeDistance3)) {
 				self.showAndHide(3);
+				self.Elements_sec3Left.forEach(function(item, index){
+					item.animate({'transform': 't0 ' + translateY3}, 1);
+				});
+				self.Elements_sec3Right.forEach(function(item, index){
+					item.animate({'transform': 't0 ' + translateY3}, 1);
+				});
+
+				//remove skill words
+				if ($('.skill').last().data('order') === 4) {
+					$('.skill').last().remove();
+				}
+				//change skill words
+				if ($('.skill').last().data('order') !== 3) {
+					$('.skill').last().after('<p class="skill" data-order="3">' + SkillModel.attributes.description[2] + '</p>');
+				}
+				
 			/****** section 4 ******/
 			} else if (($(window).scrollTop() >= changeDistance3)) {
 				self.showAndHide(4);
+				self.Elements_sec4Left.forEach(function(item, index){
+					item.animate({'transform': 't0 ' + translateY4}, 1);
+				});
+				self.Elements_sec4Right.forEach(function(item, index){
+					item.animate({'transform': 't0 ' + translateY4}, 1);
+				});
 
+				//change skill words
+				if ($('.skill').last().data('order') !== 4) {
+					$('.skill').last().after('<p class="skill" data-order="4">' + SkillModel.attributes.description[3] + '</p>');
+				}
 			} 
 		},
 
@@ -200,10 +251,12 @@ define([
 				triPrism1Left[i] = s3Left.polygon(triPrism1x, triPrism1y, triPrism1x + 18, triPrism1y + 4, triPrism1x + 10, triPrism1y + 12);
 				triPrism2Left[i] = s3Left.polygon(triPrism1x, triPrism1y, triPrism1x + 10, triPrism1y + 12, triPrism1x + 10, triPrism1y + 20, triPrism1x, triPrism1y + 8);
 				triPrism3Left[i] = s3Left.polygon(triPrism1x + 10, triPrism1y + 12, triPrism1x + 18, triPrism1y + 4, triPrism1x + 18, triPrism1y + 12, triPrism1x + 10, triPrism1y + 20);
+				this.Elements_sec3Left[i] = s3Left.g(triPrism1Left[i], triPrism2Left[i], triPrism3Left[i]);
 
 				triPrism1Right[i] = s3Right.polygon(triPrism1xR, triPrism1yR, triPrism1xR + 18, triPrism1yR + 4, triPrism1xR + 10, triPrism1yR + 12);
 				triPrism2Right[i] = s3Right.polygon(triPrism1xR, triPrism1yR, triPrism1xR + 10, triPrism1yR + 12, triPrism1xR + 10, triPrism1yR + 20, triPrism1xR, triPrism1yR + 8);
 				triPrism3Right[i] = s3Right.polygon(triPrism1xR + 10, triPrism1yR + 12, triPrism1xR + 18, triPrism1yR + 4, triPrism1xR + 18, triPrism1yR + 12, triPrism1xR + 10, triPrism1yR + 20);
+				this.Elements_sec3Right[i] = s3Right.g(triPrism1Right[i], triPrism2Right[i], triPrism3Right[i]);
 
 				triPrism1Left[i].attr({
 					'fill': '#8d8d8d'
@@ -241,10 +294,12 @@ define([
 				pentaL[i] = s4Left.polygon(pentagonX, pentagonY, pentagonX + 6, pentagonY - 7, pentagonX + 12, pentagonY + 1, pentagonX + 9, pentagonY + 10, pentagonX + 3, pentagonY + 9); 
 				pentaSide1L[i] = s4Left.polygon(pentagonX + 6, pentagonY -7, pentagonX + 14, pentagonY -7, pentagonX + 19, pentagonY + 1, pentagonX + 12, pentagonY + 1);
 				pentaSide2L[i] = s4Left.polygon(pentagonX + 12, pentagonY + 1, pentagonX + 19, pentagonY + 1, pentagonX + 15, pentagonY + 10, pentagonX + 9, pentagonY + 10);
+				this.Elements_sec4Left[i] = s4Left.g(pentaL[i], pentaSide1L[i], pentaSide2L[i]);
 
 				pentaR[i] = s4Right.polygon(pentagonXR, pentagonYR, pentagonXR + 6, pentagonYR - 7, pentagonXR + 12, pentagonYR + 1, pentagonXR + 9, pentagonYR + 10, pentagonXR + 3, pentagonYR + 9); 
 				pentaSide1R[i] = s4Right.polygon(pentagonXR + 6, pentagonYR -7, pentagonXR + 14, pentagonYR -7, pentagonXR + 19, pentagonYR + 1, pentagonXR + 12, pentagonYR + 1);
 				pentaSide2R[i] = s4Right.polygon(pentagonXR + 12, pentagonYR + 1, pentagonXR + 19, pentagonYR + 1, pentagonXR + 15, pentagonYR + 10, pentagonXR + 9, pentagonYR + 10);
+				this.Elements_sec4Right[i] = s4Right.g(pentaR[i], pentaSide1R[i], pentaSide2R[i]);
 
 				pentaL[i].attr({
 					'fill': '#888'
@@ -286,6 +341,15 @@ define([
 				}
 			}
 			
+		},
+
+		flyAway: function(passSection) {
+			var flyElements1 = 'Elements_sec' + passSection + 'Left';
+			// console.log('elements: ' + self[flyElements1].length);
+			// console.log('elements: ' + self[flyElements1][0]);
+			self[flyElements1].forEach(function(item){
+				item.animate({opacity: 0}, 800);
+			});
 		}
 
 	});
