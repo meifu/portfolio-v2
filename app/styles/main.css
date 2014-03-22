@@ -543,11 +543,19 @@ body {
     font-weight: normal;
     background: url(../img/name.png) no-repeat center 0; }
   #middle .desc, #middle .skill {
-    margin: 10px 0 10px; }
-  #middle .skill {
+    margin: 10px 0 10px;
+    color: #bbb;
     font-size: 20px; }
-  #middle .desc#scroll {
-    margin: 10px 0 40px; }
+  #middle #skillWrap {
+    height: 45px;
+    overflow: hidden; }
+  #middle #desc1 {
+    margin-top: 55px; }
+  #middle #scroll {
+    margin: 10px auto 40px;
+    background: url(../img/scroll.png) no-repeat center 0;
+    width: 31px;
+    height: 23px; }
   #middle nav ul {
     list-style: none; }
     #middle nav ul li {
@@ -607,6 +615,10 @@ body {
         -moz-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, -112, 0, 0, 1);
         -o-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, -112, 0, 0, 1);
         transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, -112, 0, 0, 1); }
+    #middle nav ul li.current > a.link > span.active {
+      background-color: #fff; }
+      #middle nav ul li.current > a.link > span.active span.vertical {
+        color: #715f85; }
 
 #svg1left, #svg1right, #svg2left, #svg2right, #svg3left, #svg3right, #svg4left, #svg4right {
   z-index: 1;

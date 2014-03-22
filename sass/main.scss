@@ -134,12 +134,21 @@ body{
     }
     .desc, .skill{
         margin: 10px 0 10px;
-    }
-    .skill {
+        color: #bbb;
         font-size: 20px;
     }
-    .desc#scroll {
-        margin: 10px 0 40px;
+    #skillWrap {
+        height: 45px;
+        overflow: hidden;
+    }
+    #desc1 {
+        margin-top: 55px;
+    }
+    #scroll {
+        margin: 10px auto 40px;
+        background: url(../img/scroll.png) no-repeat center 0;
+        width: 31px;
+        height: 23px;
     }
     nav{
         ul{
@@ -228,6 +237,18 @@ body{
                     }
                 }
                 
+            }
+
+            li.current{
+                > a.link{
+                    > span.active {
+                        background-color: #fff;
+                        span.vertical {
+                            color: #715f85;
+                        }
+                    }
+                    
+                }
             }
         }
     }

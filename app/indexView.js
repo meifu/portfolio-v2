@@ -47,7 +47,10 @@ define([
 			var nav_template = _.template(NavTempl);
 			$('#middle').html(nav_template);
 			// console.log('test model: ' + SkillModel.attributes.description[0]);
-			$('.skill').last().html(SkillModel.attributes.description[0]);
+			for (var i = 0; i < 4; i++) {
+				$('#skill' + i).html(SkillModel.attributes.description[i]);
+			}
+			// $('.skill').last().html(SkillModel.attributes.description[0]);
 
 			/********* Section1 ************/
 			var s1Left = Snap('#svg1left');
@@ -117,29 +120,37 @@ define([
 			var changeDistance3 = browserHeight*(3-bufferPercent);
 
 			var translateY1 = -$(window).scrollTop()*0.7;
-			var translateY2 = -$(window).scrollTop()*0.8 + browserHeight;
-			var translateY3 = -$(window).scrollTop()*0.8 + browserHeight*2;
-			var translateY4 = -$(window).scrollTop()*0.8 + browserHeight*3;
+			var translateY2 = -$(window).scrollTop()*0.9 + browserHeight;
+			var translateY3 = -$(window).scrollTop()*1 + browserHeight*2;
+			var translateY4 = -$(window).scrollTop()*1 + browserHeight*3;
 
+			// console.log('svg1 opacity ' + $('#svg1left').css('display'));
 			
 			/****** section 1 ******/
 			if ($(window).scrollTop() < changeDistance1) { 
-				var opacityChange1 = (1 - $(window).scrollTop()/browserHeight*1.7);
+				// var opacityChange1 = (1 - ($(window).scrollTop()*1.5)/browserHeight);
 				self.Elements_sec1Left.forEach(function(item, index){
-					item.animate({'transform': 't0 ' + translateY1, 'opacity': opacityChange1}, 1);
+					// item.animate({'transform': 't0 ' + translateY1, 'opacity': opacityChange1}, 1);
+					item.animate({'transform': 't0 ' + translateY1}, 1);
 				});
 				self.Elements_sec1Right.forEach(function(item, index){
-					item.animate({'transform': 't0 ' + translateY1, 'opacity': opacityChange1}, 1);
+					item.animate({'transform': 't0 ' + translateY1}, 1);
 				});
+
+				if ($('#svg1left').css('display') == 'none') {
+					$('#svg1left').fadeIn();
+					$('#svg1right').fadeIn();
+				}
 
 				$('#svg2left').fadeOut();
 				$('#svg2right').fadeOut();
 				//remove skill words
-				if ($('.skill').last().data('order') === 2) {
-					$('.skill').last().remove();
-				}
+				// if ($('.skill').last().data('order') === 2) {
+				// 	$('.skill').last().remove();
+				// }
 			/****** section 2 ******/
 			} else if (($(window).scrollTop() >= changeDistance1) && ($(window).scrollTop() < changeDistance2)) {
+
 				self.showAndHide(2);
 				self.Elements_sec2Left.forEach(function(item, index){
 					item.animate({'transform': 't0 ' + translateY2}, 1);
@@ -149,15 +160,14 @@ define([
 				});
 
 				//remove skill words
-				if ($('.skill').last().data('order') === 3) {
-					$('.skill').last().remove();
-				}
+				// if ($('.skill').last().data('order') === 3) {
+				// 	$('.skill').last().remove();
+				// }
 				//change skill words
-				if ($('.skill').last().data('order') !== 2) {
-					$('.skill').last().after('<p class="skill" data-order="2">' + SkillModel.attributes.description[1] + '</p>');
-				}
+				// if ($('.skill').last().data('order') !== 2) {
+				// 	$('.skill').last().after('<p class="skill" data-order="2">' + SkillModel.attributes.description[1] + '</p>');
+				// }
 
-				// self.flyAway(1);
 				
 			/****** section 3 ******/
 			} else if (($(window).scrollTop() >= changeDistance2) && ($(window).scrollTop() < changeDistance3)) {
@@ -170,13 +180,13 @@ define([
 				});
 
 				//remove skill words
-				if ($('.skill').last().data('order') === 4) {
-					$('.skill').last().remove();
-				}
+				// if ($('.skill').last().data('order') === 4) {
+				// 	$('.skill').last().remove();
+				// }
 				//change skill words
-				if ($('.skill').last().data('order') !== 3) {
-					$('.skill').last().after('<p class="skill" data-order="3">' + SkillModel.attributes.description[2] + '</p>');
-				}
+				// if ($('.skill').last().data('order') !== 3) {
+				// 	$('.skill').last().after('<p class="skill" data-order="3">' + SkillModel.attributes.description[2] + '</p>');
+				// }
 				
 			/****** section 4 ******/
 			} else if (($(window).scrollTop() >= changeDistance3)) {
@@ -189,9 +199,9 @@ define([
 				});
 
 				//change skill words
-				if ($('.skill').last().data('order') !== 4) {
-					$('.skill').last().after('<p class="skill" data-order="4">' + SkillModel.attributes.description[3] + '</p>');
-				}
+				// if ($('.skill').last().data('order') !== 4) {
+				// 	$('.skill').last().after('<p class="skill" data-order="4">' + SkillModel.attributes.description[3] + '</p>');
+				// }
 			} 
 		},
 
@@ -326,8 +336,10 @@ define([
 		showAndHide: function(toShow) {
 			var toShowSec1 = '#svg' + toShow + 'left';
 			var toShowSec2 = '#svg' + toShow + 'right';
+			//next sec
 			var toHideSec1 = '#svg' + (toShow + 1) + 'left';
 			var toHideSec2 = '#svg' + (toShow + 1) + 'right';
+
 			if ($(toShowSec1).css('display') == 'none') {
 				$(toShowSec1).fadeIn();
 				$(toShowSec2).fadeIn();
@@ -338,6 +350,13 @@ define([
 				if ($(toHideSec1).css('display') !== 'none') {
 					$(toHideSec1).fadeOut();
 					$(toHideSec2).fadeOut();
+				}
+				//previous sec
+				if ((toShow - 1) > 0) {
+					var toHideSec3 =  '#svg' + (toShow - 1) + 'left';
+					var toHideSec4 =  '#svg' + (toShow - 1) + 'right';
+					$(toHideSec3).fadeOut();
+					$(toHideSec4).fadeOut();
 				}
 			}
 			
