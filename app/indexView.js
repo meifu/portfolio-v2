@@ -50,7 +50,7 @@ define([
 			for (var i = 0; i < 4; i++) {
 				$('#skill' + i).html(SkillModel.attributes.description[i]);
 			}
-			// $('.skill').last().html(SkillModel.attributes.description[0]);
+			$('#skillWrapInner').addClass('s1');
 
 			/********* Section1 ************/
 			var s1Left = Snap('#svg1left');
@@ -82,15 +82,15 @@ define([
 				rectyRight = Math.random()*this.svg1yRange*48;
 				rectRight[i] = s1Right.rect(rectxRight, rectyRight, 12, 12);
 				rectRight[i].attr({
-					'fill': '#6FB7F7'
+					'fill': '#a0a0a0'
 				});
 				side1Right[i] = s1Right.polygon(rectxRight + 12, rectyRight, rectxRight + 16, rectyRight + 6, rectxRight + 16, rectyRight + 18, rectxRight + 12, rectyRight + 12);
 				side1Right[i].attr({
-					'fill': '#6FF7E0'
+					'fill': '#ccc'
 				});
 				side2Right[i] = s1Right.polygon(rectxRight, rectyRight + 12, rectxRight + 12, rectyRight + 12, rectxRight + 16, rectyRight + 16, rectxRight + 4, rectyRight + 16);
 				side2Right[i].attr({
-					'fill': '#6A4582'
+					'fill': '#555'
 				});
 				this.Elements_sec1Right[i] = s1Right.g(rectRight[i], side1Right[i], side2Right[i]);
 
@@ -120,11 +120,12 @@ define([
 			var changeDistance3 = browserHeight*(3-bufferPercent);
 
 			var translateY1 = -$(window).scrollTop()*0.7;
-			var translateY2 = -$(window).scrollTop()*0.9 + browserHeight;
-			var translateY3 = -$(window).scrollTop()*1 + browserHeight*2;
+			var translateY2 = -$(window).scrollTop()*0.93 + browserHeight;
+			var translateY3 = -($(window).scrollTop()*1.1) + browserHeight*2;
 			var translateY4 = -$(window).scrollTop()*1 + browserHeight*3;
 
-			// console.log('svg1 opacity ' + $('#svg1left').css('display'));
+			self.checkSkills($(window).scrollTop(), browserHeight);
+
 			
 			/****** section 1 ******/
 			if ($(window).scrollTop() < changeDistance1) { 
@@ -144,13 +145,14 @@ define([
 
 				$('#svg2left').fadeOut();
 				$('#svg2right').fadeOut();
+				
+				
 				//remove skill words
 				// if ($('.skill').last().data('order') === 2) {
 				// 	$('.skill').last().remove();
 				// }
 			/****** section 2 ******/
 			} else if (($(window).scrollTop() >= changeDistance1) && ($(window).scrollTop() < changeDistance2)) {
-
 				self.showAndHide(2);
 				self.Elements_sec2Left.forEach(function(item, index){
 					item.animate({'transform': 't0 ' + translateY2}, 1);
@@ -158,7 +160,7 @@ define([
 				self.Elements_sec2Right.forEach(function(item, index){
 					item.animate({'transform': 't0 ' + translateY2}, 1);
 				});
-
+				
 				//remove skill words
 				// if ($('.skill').last().data('order') === 3) {
 				// 	$('.skill').last().remove();
@@ -360,15 +362,19 @@ define([
 				}
 			}
 			
-		},
+		}, 
 
-		flyAway: function(passSection) {
-			var flyElements1 = 'Elements_sec' + passSection + 'Left';
-			// console.log('elements: ' + self[flyElements1].length);
-			// console.log('elements: ' + self[flyElements1][0]);
-			self[flyElements1].forEach(function(item){
-				item.animate({opacity: 0}, 800);
-			});
+		checkSkills: function(scrollTop, browserHeight) {
+			if (scrollTop < browserHeight*1) { 
+				$('#skillWrapInner').attr('class', 's1');
+			} else if ((scrollTop >= browserHeight*1) && (scrollTop < browserHeight*2)) {
+				$('#skillWrapInner').attr('class', 's2');
+			} else if ((scrollTop >= browserHeight*2) && (scrollTop < browserHeight*3)) {
+				$('#skillWrapInner').attr('class', 's3');
+			} else if ((scrollTop >= browserHeight*3)) {
+				$('#skillWrapInner').attr('class', 's4');
+			}
+
 		}
 
 	});

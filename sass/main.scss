@@ -96,6 +96,8 @@ textarea {
 @import 'variables';
 @import 'grid';
 
+$skillLineHeight: 38px;
+
 body{
     background-color: #000;
 }
@@ -117,8 +119,8 @@ body{
     margin-left: -14%;
     left: 50%;
     z-index: 99;
-    #logo{
-        a{
+    #logo {
+        a {
             display: block;
             width: 200px;
             height: 200px;
@@ -126,13 +128,13 @@ body{
             margin: 0 auto;
         }
     }
-    #name{
+    #name {
         color: $white;
         margin: 40px 0 0;
         font-weight: normal;
         background: url(../img/name.png) no-repeat center 0;
     }
-    .desc, .skill{
+    .desc, .skill {
         margin: 10px 0 10px;
         color: #bbb;
         font-size: 20px;
@@ -140,6 +142,26 @@ body{
     #skillWrap {
         height: 45px;
         overflow: hidden;
+        position: relative;
+        #skillWrapInner {
+            position: absolute;
+            -webkit-transition: all 0.6s;
+            -moz-transition: all 0.6s;
+            transition: all 0.6s;
+        }
+        #skillWrapInner.s1 {
+            top: 0px;
+        }
+        #skillWrapInner.s2 {
+            top: -$skillLineHeight;
+        }
+        #skillWrapInner.s3 {
+            top: -$skillLineHeight*2;
+        }
+        #skillWrapInner.s4 {
+            top: -$skillLineHeight*3;
+        }
+
     }
     #desc1 {
         margin-top: 55px;
@@ -150,10 +172,10 @@ body{
         width: 31px;
         height: 23px;
     }
-    nav{
-        ul{
+    nav {
+        ul {
             list-style: none;
-            li{
+            li {
                 margin-bottom: 1px;
                 position: relative;
                 height: 40px;

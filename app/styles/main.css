@@ -548,7 +548,21 @@ body {
     font-size: 20px; }
   #middle #skillWrap {
     height: 45px;
-    overflow: hidden; }
+    overflow: hidden;
+    position: relative; }
+    #middle #skillWrap #skillWrapInner {
+      position: absolute;
+      -webkit-transition: all 0.6s;
+      -moz-transition: all 0.6s;
+      transition: all 0.6s; }
+    #middle #skillWrap #skillWrapInner.s1 {
+      top: 0px; }
+    #middle #skillWrap #skillWrapInner.s2 {
+      top: -38px; }
+    #middle #skillWrap #skillWrapInner.s3 {
+      top: -76px; }
+    #middle #skillWrap #skillWrapInner.s4 {
+      top: -114px; }
   #middle #desc1 {
     margin-top: 55px; }
   #middle #scroll {
