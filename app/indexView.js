@@ -125,7 +125,6 @@ define([
 			var translateY4 = -$(window).scrollTop()*1 + browserHeight*3;
 
 			self.checkSkills($(window).scrollTop(), browserHeight);
-
 			
 			/****** section 1 ******/
 			if ($(window).scrollTop() < changeDistance1) { 
@@ -161,15 +160,6 @@ define([
 					item.animate({'transform': 't0 ' + translateY2}, 1);
 				});
 				
-				//remove skill words
-				// if ($('.skill').last().data('order') === 3) {
-				// 	$('.skill').last().remove();
-				// }
-				//change skill words
-				// if ($('.skill').last().data('order') !== 2) {
-				// 	$('.skill').last().after('<p class="skill" data-order="2">' + SkillModel.attributes.description[1] + '</p>');
-				// }
-
 				
 			/****** section 3 ******/
 			} else if (($(window).scrollTop() >= changeDistance2) && ($(window).scrollTop() < changeDistance3)) {
