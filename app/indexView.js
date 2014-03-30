@@ -44,6 +44,7 @@ define([
 			// console.log('browserWidth: ' + browserWidth);
 			// console.log('browserHeight: ' + browserHeight);
 			$('.section').css('height', this.browserHeight);
+			$('#container').css('height', this.browserHeight*4);
 			var nav_template = _.template(NavTempl);
 			$('#middle').html(nav_template);
 			// console.log('test model: ' + SkillModel.attributes.description[0]);
@@ -145,11 +146,10 @@ define([
 				$('#svg2left').fadeOut();
 				$('#svg2right').fadeOut();
 				
-				
-				//remove skill words
-				// if ($('.skill').last().data('order') === 2) {
-				// 	$('.skill').last().remove();
+				// if ($('#sectionCSS').css('position') == 'relative') {
+					self.changeSectionPosition('#sectionCSS');
 				// }
+				
 			/****** section 2 ******/
 			} else if (($(window).scrollTop() >= changeDistance1) && ($(window).scrollTop() < changeDistance2)) {
 				self.showAndHide(2);
@@ -159,7 +159,7 @@ define([
 				self.Elements_sec2Right.forEach(function(item, index){
 					item.animate({'transform': 't0 ' + translateY2}, 1);
 				});
-				
+				self.changeSectionPosition('#sectionJS');
 				
 			/****** section 3 ******/
 			} else if (($(window).scrollTop() >= changeDistance2) && ($(window).scrollTop() < changeDistance3)) {
@@ -171,15 +171,7 @@ define([
 					item.animate({'transform': 't0 ' + translateY3}, 1);
 				});
 
-				//remove skill words
-				// if ($('.skill').last().data('order') === 4) {
-				// 	$('.skill').last().remove();
-				// }
-				//change skill words
-				// if ($('.skill').last().data('order') !== 3) {
-				// 	$('.skill').last().after('<p class="skill" data-order="3">' + SkillModel.attributes.description[2] + '</p>');
-				// }
-				
+				self.changeSectionPosition('#sectionOTHER');
 			/****** section 4 ******/
 			} else if (($(window).scrollTop() >= changeDistance3)) {
 				self.showAndHide(4);
@@ -189,11 +181,6 @@ define([
 				self.Elements_sec4Right.forEach(function(item, index){
 					item.animate({'transform': 't0 ' + translateY4}, 1);
 				});
-
-				//change skill words
-				// if ($('.skill').last().data('order') !== 4) {
-				// 	$('.skill').last().after('<p class="skill" data-order="4">' + SkillModel.attributes.description[3] + '</p>');
-				// }
 			} 
 		},
 
@@ -365,6 +352,13 @@ define([
 				$('#skillWrapInner').attr('class', 's4');
 			}
 
+		},
+
+		changeSectionPosition: function(nextSec) {
+			$('.section').css('position','relative');
+			// if ($(current).css('position') == 'relative') {
+				$(nextSec).css({'position':'fixed', 'top': '0'});
+			// }
 		}
 
 	});
