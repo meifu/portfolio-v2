@@ -108,6 +108,7 @@ define([
 			/********* Section4 ************/ 
 			this.showSecFour(this.svg1xRange, this.svg1yRange, this.browserWidth);
 			
+			this.hoverChange(this.Elements_sec1Left);
 
 		}, //end render
 
@@ -359,6 +360,20 @@ define([
 			// if ($(current).css('position') == 'relative') {
 				$(nextSec).css({'position':'fixed', 'top': '0'});
 			// }
+		},
+
+		hoverChange: function(ele) {
+			var changingAttr = {fill: 'transparent',
+								stroke: '#fff',
+								strokeWidth: 1}
+			ele.forEach(function(obj, index){
+				obj.mouseover(function(){
+					console.log('go go go ' + obj.selectAll('polygon'));
+					obj.select('rect').attr(changingAttr);
+					obj.selectAll('polygon').attr(changingAttr);
+				});
+			});
+			
 		}
 
 	});
