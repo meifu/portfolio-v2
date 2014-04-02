@@ -96,7 +96,7 @@ textarea {
 @import 'variables';
 @import 'grid';
 
-$skillLineHeight: 38px;
+$skillLineHeight: 67px;
 
 body{
     background-color: #000;
@@ -139,8 +139,11 @@ body{
         color: #bbb;
         font-size: 20px;
     }
+    .skill {
+        height: 53px;
+    }
     #skillWrap {
-        height: 45px;
+        height: 56px;
         overflow: hidden;
         position: relative;
         #skillWrapInner {

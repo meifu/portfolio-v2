@@ -546,8 +546,10 @@ body {
     margin: 10px 0 10px;
     color: #bbb;
     font-size: 20px; }
+  #middle .skill {
+    height: 53px; }
   #middle #skillWrap {
-    height: 45px;
+    height: 56px;
     overflow: hidden;
     position: relative; }
     #middle #skillWrap #skillWrapInner {
@@ -558,11 +560,11 @@ body {
     #middle #skillWrap #skillWrapInner.s1 {
       top: 0px; }
     #middle #skillWrap #skillWrapInner.s2 {
-      top: -38px; }
+      top: -67px; }
     #middle #skillWrap #skillWrapInner.s3 {
-      top: -76px; }
+      top: -134px; }
     #middle #skillWrap #skillWrapInner.s4 {
-      top: -114px; }
+      top: -201px; }
   #middle #desc1 {
     margin-top: 55px; }
   #middle #scroll {

@@ -73,7 +73,7 @@ define([
 				side1Left[i].attr({
 					'fill': '#ccc'
 				});
-				side2Left[i] = s1Left.polygon(rectxLeft, rectyLeft + 12, rectxLeft + 12, rectyLeft + 12, rectxLeft + 16, rectyLeft + 16, rectxLeft + 4, rectyLeft + 16);
+				side2Left[i] = s1Left.polygon(rectxLeft, rectyLeft + 12, rectxLeft + 12, rectyLeft + 12, rectxLeft + 16, rectyLeft + 18, rectxLeft + 4, rectyLeft + 18);
 				side2Left[i].attr({
 					'fill': '#555'
 				});
@@ -89,7 +89,7 @@ define([
 				side1Right[i].attr({
 					'fill': '#ccc'
 				});
-				side2Right[i] = s1Right.polygon(rectxRight, rectyRight + 12, rectxRight + 12, rectyRight + 12, rectxRight + 16, rectyRight + 16, rectxRight + 4, rectyRight + 16);
+				side2Right[i] = s1Right.polygon(rectxRight, rectyRight + 12, rectxRight + 12, rectyRight + 12, rectxRight + 16, rectyRight + 18, rectxRight + 4, rectyRight + 18);
 				side2Right[i].attr({
 					'fill': '#555'
 				});
@@ -108,7 +108,14 @@ define([
 			/********* Section4 ************/ 
 			this.showSecFour(this.svg1xRange, this.svg1yRange, this.browserWidth);
 			
-			this.hoverChange(this.Elements_sec1Left);
+			for (var i = 1; i <= 4; i++) {
+				var targetSetLeft = 'Elements_sec' + i + 'Left';
+				var targetSetRight = 'Elements_sec' + i + 'Right';
+				this.hoverChange(this[targetSetLeft]);
+				this.hoverChange(this[targetSetRight]);
+			}
+			// this.hoverChange(this.Elements_sec1Left);
+			// this.hoverChange(this.Elements_sec1Right);
 
 		}, //end render
 
@@ -116,13 +123,13 @@ define([
 			// console.log('the rect ' + self.rectLeft);
 			var browserHeight = $(window).innerHeight();
 			// console.log('you are scrolling at ' + $(window).scrollTop());
-			var bufferPercent = 0.3;
+			var bufferPercent = 0.5;
 			var changeDistance1 = browserHeight*(1-bufferPercent);
 			var changeDistance2 = browserHeight*(2-bufferPercent);
 			var changeDistance3 = browserHeight*(3-bufferPercent);
 
-			var translateY1 = -$(window).scrollTop()*0.7;
-			var translateY2 = -$(window).scrollTop()*0.93 + browserHeight;
+			var translateY1 = -$(window).scrollTop()*1.7;
+			var translateY2 = -$(window).scrollTop()*1.3 + browserHeight;
 			var translateY3 = -($(window).scrollTop()*1.1) + browserHeight*2;
 			var translateY4 = -$(window).scrollTop()*1 + browserHeight*3;
 
@@ -282,12 +289,12 @@ define([
 				pentagonXR = Math.floor(Math.random()*svg1xRange + 1)*48 + browserWidth*0.1;
 				pentagonYR = Math.floor(Math.random()*svg1yRange + 1)*48;
 				pentaL[i] = s4Left.polygon(pentagonX, pentagonY, pentagonX + 6, pentagonY - 7, pentagonX + 12, pentagonY + 1, pentagonX + 9, pentagonY + 10, pentagonX + 3, pentagonY + 9); 
-				pentaSide1L[i] = s4Left.polygon(pentagonX + 6, pentagonY -7, pentagonX + 14, pentagonY -7, pentagonX + 19, pentagonY + 1, pentagonX + 12, pentagonY + 1);
+				pentaSide1L[i] = s4Left.polygon(pentagonX + 6, pentagonY -7, pentagonX + 13, pentagonY -7, pentagonX + 19, pentagonY + 1, pentagonX + 12, pentagonY + 1);
 				pentaSide2L[i] = s4Left.polygon(pentagonX + 12, pentagonY + 1, pentagonX + 19, pentagonY + 1, pentagonX + 15, pentagonY + 10, pentagonX + 9, pentagonY + 10);
 				this.Elements_sec4Left[i] = s4Left.g(pentaL[i], pentaSide1L[i], pentaSide2L[i]);
 
 				pentaR[i] = s4Right.polygon(pentagonXR, pentagonYR, pentagonXR + 6, pentagonYR - 7, pentagonXR + 12, pentagonYR + 1, pentagonXR + 9, pentagonYR + 10, pentagonXR + 3, pentagonYR + 9); 
-				pentaSide1R[i] = s4Right.polygon(pentagonXR + 6, pentagonYR -7, pentagonXR + 14, pentagonYR -7, pentagonXR + 19, pentagonYR + 1, pentagonXR + 12, pentagonYR + 1);
+				pentaSide1R[i] = s4Right.polygon(pentagonXR + 6, pentagonYR -7, pentagonXR + 13, pentagonYR -7, pentagonXR + 19, pentagonYR + 1, pentagonXR + 12, pentagonYR + 1);
 				pentaSide2R[i] = s4Right.polygon(pentagonXR + 12, pentagonYR + 1, pentagonXR + 19, pentagonYR + 1, pentagonXR + 15, pentagonYR + 10, pentagonXR + 9, pentagonYR + 10);
 				this.Elements_sec4Right[i] = s4Right.g(pentaR[i], pentaSide1R[i], pentaSide2R[i]);
 
@@ -295,19 +302,19 @@ define([
 					'fill': '#888'
 				});
 				pentaSide1L[i].attr({
-					'fill': '#ccc'
+					'fill': '#eee'
 				});
-				pentaSide1L[i].attr({
-					'fill': '#777'
+				pentaSide2L[i].attr({
+					'fill': '#3a3a3a'
 				});
 				pentaR[i].attr({
 					'fill': '#888'
 				});
 				pentaSide1R[i].attr({
-					'fill': '#ccc'
+					'fill': '#eee'
 				});
-				pentaSide1R[i].attr({
-					'fill': '#777'
+				pentaSide2R[i].attr({
+					'fill': '#3a3a3a'
 				});
 
 			} //end for
@@ -364,12 +371,16 @@ define([
 
 		hoverChange: function(ele) {
 			var changingAttr = {fill: 'transparent',
-								stroke: '#fff',
+								stroke: '#ddd',
 								strokeWidth: 1}
 			ele.forEach(function(obj, index){
 				obj.mouseover(function(){
-					console.log('go go go ' + obj.selectAll('polygon'));
-					obj.select('rect').attr(changingAttr);
+					// console.log('go go go ' + obj.select('rect'));
+					// obj.animate({transform: 'r180,' + obj.getBBox().cx + ',' + obj.getBBox().cy}, 200);
+					console.log('getbbox ' + obj.getBBox().cx);
+					if (obj.select('rect') !== null) {
+						obj.select('rect').attr(changingAttr);	
+					}
 					obj.selectAll('polygon').attr(changingAttr);
 				});
 			});
