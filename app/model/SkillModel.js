@@ -15,10 +15,10 @@ define([
 
 	skillsset.set({
 		description: [
-			'I can do HTML',
-			'I can do CSS (and SASS)',
-			'I can do Javascript (and Backbone, Node, MongoDB...)',
-			'I can do more (Wordpress, design)'
+			'I can code HTML5',
+			'I can code CSS (and SASS)',
+			'I can code Javascript (and Backbone, Node, MongoDB...)',
+			'I am also experienced with Wordpress, design, ...'
 		]
 	});
 
