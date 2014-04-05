@@ -11,9 +11,8 @@
   %link{ :rel => "stylesheet", :href => "app/styles/main.css"}
   %script{ :src => "vendor/modernizr/modernizr.js"}
 %body
-  
+  %div#middle
   %div#container.clearfix
-    %div#middle.three
       
     %div.section#sectionHTML
       %svg#svg1left
@@ -27,6 +26,18 @@
     %div.section#sectionOTHER
       %svg#svg4left
       %svg#svg4right
+
+  %div#worksContainer.clearfix
+    %div.workBlock#workBlock1
+      %div.blockInner
+        %img{ :src => "img/works/kamia_large.jpg", :alt => "kamia"}
+        %div.darkenLayer
+    %div.workBlock
+    %div.workBlock
+    %div.workBlock
+    %div.workBlock
+    %div.workBlock
+    %div.workBlock
   %script{ :"data-main" => "app/main", :src => "vendor/requirejs/require.js"}
 
 != "</html>"

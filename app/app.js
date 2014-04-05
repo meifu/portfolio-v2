@@ -26,7 +26,7 @@ define([
 	// 	}
 	// });
 	// return AppView;
-	console.log('app.js');
+	// console.log('app.js');
 	var initialize = function() {
 		Router;
 	};

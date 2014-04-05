@@ -1,9 +1,10 @@
 define([
-  'jquery',
-  'underscore',
-  'backbone'
+  'jquery'
+  ,'underscore'
+  ,'backbone'
   ,'indexView'
-  ], function($, _, Backbone, IndexView) {
+  ,'worksView'
+  ], function($, _, Backbone, IndexView, WorksView) {
   "use strict";
 
   // External dependencies.
@@ -19,19 +20,24 @@ define([
   //     console.log("Welcome to your / route.");
   //   }
   // });
-  console.log('router');
   var Router = Backbone.Router.extend({
     routes: {
-      "": "index"
+      ""      : "index",
+      "works" : "works"
     },
 
     index: function() {
       console.log('this is router');
-      // indexView.render();
+      var indexObj = new IndexView();
+    },
+
+    works: function() {
+      console.log('this is works');
+      var worksObj = new WorksView();
     }
 
   });
   var AppRouter = new Router();
   return AppRouter;
-
+  
 });

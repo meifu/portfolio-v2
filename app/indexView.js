@@ -3,14 +3,14 @@ define([
 	,'underscore'
 	,'backbone'
 	,'snap'
-	,'parallax'
+	// ,'parallax'
 	,'text!templates/navTempl.html'
 	,'model/SkillModel'
 	,'sec1view'
 	,'sec2view'
 	,'sec3view'
 	,'sec4view'
-], function($, _, Backbone, Snap, Parallax, NavTempl, SkillModel, Sec1Elements, Sec2Elements, Sec3Elements, Sec4Elements) {
+], function($, _, Backbone, Snap, NavTempl, SkillModel, Sec1Elements, Sec2Elements, Sec3Elements, Sec4Elements) {
 	var self;
 	var IndexView = Backbone.View.extend({
 		el: $('#container'),
@@ -19,9 +19,8 @@ define([
 
 		initialize: function() {
 			this.render();
-			self = this;
 			// console.log('this model ' + Object.keys(SkillModel.attributes));
-			this.self = this;
+			self = this;
 			$(window).scroll(this.detectScroll);
 			this.s1_elem = new Sec1Elements();
 			this.s2_elem = new Sec2Elements();
@@ -47,10 +46,12 @@ define([
 			this.browserHeight = $(window).innerHeight();
 			// console.log('browserWidth: ' + browserWidth);
 			// console.log('browserHeight: ' + browserHeight);
-			$('.section').css('height', this.browserHeight);
+
+			$('.section').css('height', this.browserHeight).fadeIn();
 			$('#container').css('height', this.browserHeight*4);
 			var nav_template = _.template(NavTempl);
 			$('#middle').html(nav_template);
+			$('#middle').removeClass('leftSide');
 			// console.log('test model: ' + SkillModel.attributes.description[0]);
 			for (var i = 0; i < 4; i++) {
 				$('#skill' + i).html(SkillModel.attributes.description[i]);
@@ -183,7 +184,7 @@ define([
 
 	});
 
-	var indexObj = new IndexView();
-
-	return indexObj;
+	// var indexObj = new IndexView();
+	// return indexObj;
+	return IndexView;
 });

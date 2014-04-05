@@ -93,10 +93,17 @@ textarea {
 
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
 @import 'normalize';
-@import 'variables';
-@import 'grid';
+
+$font: "Source Sans Pro", sans-serif;
 
 $skillLineHeight: 67px;
+
+*{
+    margin:0;
+    padding:0;
+    font-family:$font;
+    font-weight: 100;
+}
 
 body{
     background-color: #000;
@@ -113,26 +120,29 @@ body{
 
 #middle{
     text-align: center;
-    // width: 243px;
+    width: 300px;
     position: fixed;
     // margin: 50px auto;
     margin-left: -14%;
     left: 50%;
     z-index: 99;
+    -moz-transition: all 0.6s;
+    -webkit-transition: all 0.6s;
+    transition: all 0.6s;
     #logo {
         a {
             display: block;
             width: 200px;
             height: 200px;
-            background: url(../img/logo1.png) no-repeat 0 0;
+            background: url(../../img/logo1.png) no-repeat 0 0;
             margin: 0 auto;
         }
     }
     #name {
-        color: $white;
+        color: #f0f0f0;
         margin: 40px 0 0;
         font-weight: normal;
-        background: url(../img/name.png) no-repeat center 0;
+        background: url(../../img/name.png) no-repeat center 0;
     }
     .desc, .skill {
         margin: 10px 0 10px;
@@ -170,8 +180,9 @@ body{
         margin-top: 55px;
     }
     #scroll {
+        display: block;
         margin: 10px auto 40px;
-        background: url(../img/scroll.png) no-repeat center 0;
+        background: url(../../img/scroll.png) no-repeat center 0;
         width: 31px;
         height: 23px;
     }
@@ -264,18 +275,25 @@ body{
                 
             }
 
-            li.current{
-                > a.link{
-                    > span.active {
-                        background-color: #fff;
-                        span.vertical {
-                            color: #715f85;
-                        }
-                    }
+            // li.current{
+            //     > a.link{
+            //         > span.active {
+            //             background-color: #ddd;
+            //             span.vertical {
+            //                 color: #715f85;
+            //             }
+            //         }
                     
-                }
-            }
+            //     }
+            // }
         }
+    }
+}
+#middle.leftSide {
+    margin-left: 0;
+    left: 0%;
+    #scroll {
+        display: none;
     }
 }
 
@@ -315,6 +333,35 @@ body{
     z-index: 2;
 }
 
+#worksContainer {
+    display: none;
+    position: relative;
+    margin-left: 300px;
+    .workBlock {
+        position: absolute;
+        width: 500px;
+        // height: 100px;
+        .blockInner {
+            position: relative;
+            width: 100%;
+            img {
+                width: 100%;
+                position: absolute;
+            }
+            .darkenLayer {
+                position: absolute;
+                width: 100%;
+                height: 278px;
+                background-color: rgba(0,0,0,0.8);
+            }
+        }
+    }
+    #workBlock1 {
+        height: auto;
+        left: 150px;
+        top: 100px;
+    }
+}
 
 
 /* ==========================================================================

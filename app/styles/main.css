@@ -428,90 +428,11 @@ td,
 th {
   padding: 0; }
 
-/* VARIABLES */
-/* Colors */
-/* Widths */
-/* GRID */
 * {
   margin: 0;
   padding: 0;
-  font-family: "Source Sans Pro", sans-serif; }
-
-.container {
-  width: 1200px;
-  margin: 0 auto; }
-
-.pull-left {
-  float: left; }
-
-.pull-right {
-  float: right; }
-
-.row {
-  min-height: 2em;
-  line-height: 2em;
-  width: 100%; }
-
-.span {
-  float: left;
-  display: inline;
-  min-height: 1em;
-  margin: 0 2% 20px 2%; }
-  .span:first-child {
-    margin-left: 0; }
-  .span:last-child {
-    margin-right: 0; }
-
-.one {
-  width: 8%; }
-
-.two {
-  width: 18%; }
-
-.three {
-  width: 28%; }
-
-.four {
-  width: 38%; }
-
-.five {
-  width: 48%; }
-
-.six {
-  width: 58%; }
-
-.seven {
-  width: 68%; }
-
-.eight {
-  width: 78%; }
-
-.nine {
-  width: 88%; }
-
-.ten {
-  width: 100%; }
-
-.container:after {
-  content: "\0020";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden; }
-
-.row:before, .row:after {
-  content: '\0020';
-  display: block;
-  overflow: hidden;
-  visibility: hidden;
-  width: 0;
-  height: 0; }
-
-.row:after {
-  clear: both; }
-
-.row {
-  zoom: 1; }
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 100; }
 
 body {
   background-color: #000; }
@@ -527,21 +448,25 @@ body {
 
 #middle {
   text-align: center;
+  width: 300px;
   position: fixed;
   margin-left: -14%;
   left: 50%;
-  z-index: 99; }
+  z-index: 99;
+  -moz-transition: all 0.6s;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s; }
   #middle #logo a {
     display: block;
     width: 200px;
     height: 200px;
-    background: url(../img/logo1.png) no-repeat 0 0;
+    background: url(../../img/logo1.png) no-repeat 0 0;
     margin: 0 auto; }
   #middle #name {
     color: #f0f0f0;
     margin: 40px 0 0;
     font-weight: normal;
-    background: url(../img/name.png) no-repeat center 0; }
+    background: url(../../img/name.png) no-repeat center 0; }
   #middle .desc, #middle .skill {
     margin: 10px 0 10px;
     color: #bbb;
@@ -568,8 +493,9 @@ body {
   #middle #desc1 {
     margin-top: 55px; }
   #middle #scroll {
+    display: block;
     margin: 10px auto 40px;
-    background: url(../img/scroll.png) no-repeat center 0;
+    background: url(../../img/scroll.png) no-repeat center 0;
     width: 31px;
     height: 23px; }
   #middle nav ul {
@@ -631,10 +557,12 @@ body {
         -moz-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, -112, 0, 0, 1);
         -o-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, -112, 0, 0, 1);
         transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, -112, 0, 0, 1); }
-    #middle nav ul li.current > a.link > span.active {
-      background-color: #fff; }
-      #middle nav ul li.current > a.link > span.active span.vertical {
-        color: #715f85; }
+
+#middle.leftSide {
+  margin-left: 0;
+  left: 0%; }
+  #middle.leftSide #scroll {
+    display: none; }
 
 #svg1left, #svg1right, #svg2left, #svg2right, #svg3left, #svg3right, #svg4left, #svg4right {
   z-index: 1;
@@ -669,6 +597,29 @@ body {
 #sectionOTHER {
   background-color: #000;
   z-index: 2; }
+
+#worksContainer {
+  display: none;
+  position: relative;
+  margin-left: 300px; }
+  #worksContainer .workBlock {
+    position: absolute;
+    width: 500px; }
+    #worksContainer .workBlock .blockInner {
+      position: relative;
+      width: 100%; }
+      #worksContainer .workBlock .blockInner img {
+        width: 100%;
+        position: absolute; }
+      #worksContainer .workBlock .blockInner .darkenLayer {
+        position: absolute;
+        width: 100%;
+        height: 278px;
+        background-color: rgba(0, 0, 0, 0.8); }
+  #worksContainer #workBlock1 {
+    height: auto;
+    left: 150px;
+    top: 100px; }
 
 /* ==========================================================================
    Helper classes
