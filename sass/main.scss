@@ -93,7 +93,7 @@ textarea {
 
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
 @import 'normalize';
-@import 'sliderstyle';
+// @import 'sliderstyle';
 
 $font: "Source Sans Pro", sans-serif;
 
@@ -339,14 +339,16 @@ body{
     position: relative;
     margin-left: 300px;
     .workBlock {
-        position: absolute;
-        width: 600px;
-        // height: 100px;
+        // position: absolute;
+        width: 700px;
+        left: 50%;
+        margin: 100px auto 0;
         .blockInner {
             position: relative;
             width: 100%;
             img, .darkenLayer {
-                width: 100%;
+                // width: 100%;
+                width: 600px;
             }
             img {
                 display: block;
@@ -356,9 +358,10 @@ body{
                 position: absolute;
                 top: 0;
                 left: 0;
-                width: 100%;
+                // width: 100%;
+                width: 600px;
                 height: 100%;
-                background-color: rgba(0,0,0,0.8);
+                background-color: rgba(0,0,0,0.6);
                 -moz-transition: all 0.6s;
                 -webkit-transition: all 0.6s;
                 transition: all 0.6s;
@@ -366,14 +369,17 @@ body{
             }
             .workDes {
                 width: 150px;
-                right: 0;
+                padding: 20px 0;
+                right: 100px;
                 position: absolute;
                 -moz-transition: all 0.6s;
                 -webkit-transition: all 0.6s;
                 transition: all 0.6s;
-                p {
+                li {
                     text-align: center;
-
+                    color: #eee;
+                    list-style: none;
+                    margin-bottom: 10px;
                 }
             
             }
@@ -383,16 +389,16 @@ body{
                 opacity: 0;
             }
             .workDes {
-                right: -150px;
+                right: -50px;
             }
         }
     }
 
-    #workBlock1 {
-        height: auto;
-        left: 150px;
-        top: 100px;
-    }
+    // #workBlock1 {
+    //     height: auto;
+    //     left: 150px;
+    //     top: 100px;
+    // }
 }
 
 

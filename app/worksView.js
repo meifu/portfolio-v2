@@ -3,8 +3,8 @@ define([
 	,'underscore'
 	,'backbone'
 	,'text!templates/navTempl.html'
-	,'glidejs'
-], function($, _, Backbone, NavTempl, Glidejs) {
+	// ,'glidejs'
+], function($, _, Backbone, NavTempl) {
 	var self;
 	var WorksView = Backbone.View.extend({
 		el: '#worksContainer',
@@ -22,7 +22,11 @@ define([
 			}
 			$('#middle').addClass('leftSide');
 			$('#worksContainer').fadeIn().css('height', $(window).innerHeight());
-			
+			// $('.slider').glide(
+			// 	// {autoplay: 3000
+			// 	// ,arrows: 'body'
+			// 	// ,navigation: 'body'}
+			// );
 		}
 		
 	});

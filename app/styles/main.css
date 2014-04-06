@@ -428,62 +428,6 @@ td,
 th {
   padding: 0; }
 
-.slider {
-  position: relative;
-  width: 100%;
-  height: 420px;
-  overflow: hidden; }
-
-.slides {
-  height: 100%;
-  /* Clear fix */
-  overflow: hidden;
-  *zoom: 1;
-  /**
-   * Prevent blinking issue
-   * Not tested. Experimental.
-   */
-  -webkit-backface-visibility: hidden;
-  -webkit-transform-style: preserve-3d; }
-
-.slide {
-  height: 100%;
-  float: left;
-  clear: none; }
-
-.slider-arrow {
-  position: absolute;
-  display: block;
-  margin-bottom: -20px;
-  padding: 20px; }
-
-.slider-arrow--right {
-  bottom: 50%;
-  right: 30px; }
-
-.slider-arrow--left {
-  bottom: 50%;
-  left: 30px; }
-
-.slider-nav {
-  position: absolute;
-  bottom: 30px; }
-
-.slider-nav__item {
-  width: 12px;
-  height: 12px;
-  float: left;
-  clear: none;
-  display: block;
-  margin: 0 5px;
-  background: #fff; }
-
-.slider-nav__item:hover {
-  background: #ccc; }
-
-.slider-nav__item--current {
-  background: #ccc; }
-
 * {
   margin: 0;
   padding: 0;
@@ -659,13 +603,14 @@ body {
   position: relative;
   margin-left: 300px; }
   #worksContainer .workBlock {
-    position: absolute;
-    width: 600px; }
+    width: 700px;
+    left: 50%;
+    margin: 100px auto 0; }
     #worksContainer .workBlock .blockInner {
       position: relative;
       width: 100%; }
       #worksContainer .workBlock .blockInner img, #worksContainer .workBlock .blockInner .darkenLayer {
-        width: 100%; }
+        width: 600px; }
       #worksContainer .workBlock .blockInner img {
         display: block;
         position: relative; }
@@ -673,30 +618,30 @@ body {
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 600px;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(0, 0, 0, 0.6);
         -moz-transition: all 0.6s;
         -webkit-transition: all 0.6s;
         transition: all 0.6s;
         opacity: 1; }
       #worksContainer .workBlock .blockInner .workDes {
         width: 150px;
-        right: 0;
+        padding: 20px 0;
+        right: 100px;
         position: absolute;
         -moz-transition: all 0.6s;
         -webkit-transition: all 0.6s;
         transition: all 0.6s; }
-        #worksContainer .workBlock .blockInner .workDes p {
-          text-align: center; }
+        #worksContainer .workBlock .blockInner .workDes li {
+          text-align: center;
+          color: #eee;
+          list-style: none;
+          margin-bottom: 10px; }
     #worksContainer .workBlock:hover .darkenLayer {
       opacity: 0; }
     #worksContainer .workBlock:hover .workDes {
-      right: -150px; }
-  #worksContainer #workBlock1 {
-    height: auto;
-    left: 150px;
-    top: 100px; }
+      right: -50px; }
 
 /* ==========================================================================
    Helper classes
