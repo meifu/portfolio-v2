@@ -16,6 +16,7 @@
     "modernizr": "*",
     "Snap.svg": "*",
     "parallax": "*",
-    "requirejs-text": "*"
+    "requirejs-text": "*",
+    "glidejs": "*"
   }
 }

@@ -9,6 +9,7 @@ require.config({
 	    "snap"      : "../vendor/Snap.svg/dist/snap.svg-min",
 	    "parallax"  : "../vendor/parallax/deploy/jquery.parallax.min",
 	    "text"      : "../vendor/requirejs-text/text",
+	    "glidejs"   : "../vendor/glidejs/dist/jquery.glide.min",
 	    "indexView" : "indexView",
 	    "sec1view"  : "sec1eleView",
 	    "sec2view"  : "sec2eleView",

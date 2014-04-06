@@ -3,7 +3,8 @@ define([
 	,'underscore'
 	,'backbone'
 	,'text!templates/navTempl.html'
-], function($, _, Backbone, NavTempl) {
+	,'glidejs'
+], function($, _, Backbone, NavTempl, Glidejs) {
 	var self;
 	var WorksView = Backbone.View.extend({
 		el: '#worksContainer',
