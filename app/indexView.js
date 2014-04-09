@@ -46,9 +46,10 @@ define([
 			this.browserHeight = $(window).innerHeight();
 			// console.log('browserWidth: ' + browserWidth);
 			// console.log('browserHeight: ' + browserHeight);
-
+			$('#worksContainer').fadeOut();
+			$('#container').fadeIn().css('height', this.browserHeight*4);
 			$('.section').css('height', this.browserHeight).fadeIn();
-			$('#container').css('height', this.browserHeight*4);
+			
 			var nav_template = _.template(NavTempl);
 			$('#middle').html(nav_template);
 			$('#middle').removeClass('leftSide');
@@ -69,8 +70,6 @@ define([
 			/********* Section4 ************/ 
 			// this.showSecFour(this.svg1xRange, this.svg1yRange, this.browserWidth);
 			
-			
-
 		}, //end render
 
 		detectScroll: function() {
