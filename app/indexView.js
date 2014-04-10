@@ -69,6 +69,13 @@ define([
 			
 			/********* Section4 ************/ 
 			// this.showSecFour(this.svg1xRange, this.svg1yRange, this.browserWidth);
+			$('#emailLink').click(function(){
+				if ($('#emailContent').hasClass('open')) {
+					$('#emailContent').removeClass('open');
+				} else {
+					$('#emailContent').addClass('open');
+				}
+			});
 			
 		}, //end render
 

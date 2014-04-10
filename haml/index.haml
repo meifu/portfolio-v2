@@ -101,8 +101,12 @@
   %div#contactWrap
     %ul
       %li
-        %a.link{ :href => "#"}
+        %a#emailContent schwarzmeifu@gmail.com
+        %a.link#emailLink{ :href => "#"}
           %span.active
+            %span.valign
+              %span.vertical email
+          %span.hover
             %span.valign
               %span.vertical email
       %li
@@ -110,6 +114,10 @@
           %span.active
             %span.valign
               %span.vertical github
+          %span.hover
+            %span.valign
+              %span.vertical github
+
   %script{ :"data-main" => "app/main", :src => "vendor/requirejs/require.js"}
 
 != "</html>"
