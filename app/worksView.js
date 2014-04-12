@@ -23,7 +23,6 @@ define([
 			}
 			$('#middle').addClass('leftSide');
 			$('#worksContainer').fadeIn();
-			$('#skill4').html(SkillModel.attributes.description[4]);
 			$('#skillWrapInner').attr('class', 's5');
 			// $('.slider').glide(
 			// 	// {autoplay: 3000

@@ -95,6 +95,7 @@ textarea {
 @import 'normalize';
 // @import 'sliderstyle';
 @import 'rotate3d';
+@import 'fontello';
 
 $font: "Source Sans Pro", sans-serif;
 
@@ -397,9 +398,10 @@ body{
     // }
 }
 
+@include rotateCSS('#contactWrap', 60px, 40px, -60);
 #contactWrap {
     position: fixed;
-    left: 0;
+    right: 0;
     bottom: 45%;
     z-index: 10;
     text-align: center;
@@ -421,9 +423,22 @@ body{
             opacity: 1;
         }
     }
+    ul {
+        li {
+            .link {
+                .active, .hover {
+                    .vertical {
+                        font-size: 13px;
+                        i {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
-@include rotateCSS('#contactWrap', 60px, 40px, -60);
 
 /* ==========================================================================
    Helper classes

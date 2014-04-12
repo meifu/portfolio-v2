@@ -32,8 +32,9 @@
                         -o-transition: .2s;
                         transition: .2s;
                         .vertical{
-                            padding-top: 7px;
+                            padding-top: 9px;
                             display: block;
+                            color: #000;
                         }
                     }
                     .active{
@@ -45,9 +46,7 @@
                         // transform: rotateY(0deg) scale3d(1,1,1);
                         left: 0;
                         background-color: #4a4a4a;
-                        .vertical{
-                            color: #aaa;
-                        }
+                        
                     }
                     .hover{
                         -webkit-transform: matrix3d(0, 0, -1, 0.00166, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1);
@@ -61,6 +60,7 @@
                         left: 100%;
                         background-color: #ccc;
                         // display: none;
+                        
                     }
                 }
                 .link:hover{

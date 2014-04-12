@@ -21,7 +21,7 @@ define([
 			this.render();
 			// console.log('this model ' + Object.keys(SkillModel.attributes));
 			self = this;
-			$(window).scroll(this.detectScroll);
+			
 			this.s1_elem = new Sec1Elements();
 			this.s2_elem = new Sec2Elements();
 			this.s3_elem = new Sec3Elements();
@@ -54,21 +54,13 @@ define([
 			$('#middle').html(nav_template);
 			$('#middle').removeClass('leftSide');
 			// console.log('test model: ' + SkillModel.attributes.description[0]);
-			for (var i = 0; i < 4; i++) {
+			for (var i = 0; i < SkillModel.attributes.description.length; i++) {
 				$('#skill' + i).html(SkillModel.attributes.description[i]);
 			}
 			$('#skillWrapInner').addClass('s1');
 			this.svg1xRange = Math.floor((this.browserWidth*0.4)/48); //console.log('svg1xRange: ' + svg1xRange);
 			this.svg1yRange = Math.floor((this.browserHeight)/48);
 			
-			/********* Section2 ************/ 
-			// this.showSecTwo(this.svg1xRange, this.svg1yRange, this.browserWidth);
-
-			/********* Section3 ************/ 
-			// this.showSecThree(this.svg1xRange, this.svg1yRange, this.browserWidth);
-			
-			/********* Section4 ************/ 
-			// this.showSecFour(this.svg1xRange, this.svg1yRange, this.browserWidth);
 			$('#emailLink').click(function(){
 				if ($('#emailContent').hasClass('open')) {
 					$('#emailContent').removeClass('open');
@@ -76,6 +68,8 @@ define([
 					$('#emailContent').addClass('open');
 				}
 			});
+
+			$(window).scroll(this.detectScroll);
 			
 		}, //end render
 
