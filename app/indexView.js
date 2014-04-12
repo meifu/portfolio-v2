@@ -69,7 +69,8 @@ define([
 				}
 			});
 
-			$(window).scroll(this.detectScroll);
+			// $(window).scroll(this.detectScroll);
+			$(window).bind('scroll', this.detectScroll);
 			
 		}, //end render
 

@@ -546,6 +546,8 @@ body {
   position: fixed;
   margin-left: -150px;
   left: 50%;
+  top: 50%;
+  margin-top: -251px;
   z-index: 99;
   -moz-transition: all 0.6s;
   -webkit-transition: all 0.6s;
