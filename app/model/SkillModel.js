@@ -19,7 +19,7 @@ define([
 			'I can code CSS (and SASS)',
 			'I can code Javascript (and Backbone, Node, MongoDB...)',
 			'I am also experienced with Wordpress, design, ...',
-			'These are my previous works. To know more ... please contact me.'
+			'These are my previous works. To know more, please contact me.'
 		]
 	});
 
