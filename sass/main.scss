@@ -246,6 +246,7 @@ body{
     display: none;
     position: relative;
     margin-left: 300px;
+    padding-bottom: 100px;
     .workBlock {
         // position: absolute;
         width: 700px;
@@ -319,7 +320,7 @@ body{
     #emailContent {
         position: absolute;
         top: 10px;
-        left: -999px;
+        right: -999px;
         display: block;
         background-color: #f0f0f0;
         opacity: 0;
@@ -330,8 +331,10 @@ body{
         -o-transition: all .6s;
         transition: all .6s;
         &.open {
-            left: 70px;
+            right: 70px;
             opacity: 1;
+            color: #715f85;
+            text-decoration: none;
         }
     }
     ul {

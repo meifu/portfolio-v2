@@ -13,17 +13,20 @@ define([
 		el: '#worksContainer',
 		template: _.template(WorkTempl),
 		initialize: function() {
+			self = this;
 			this.render();
 			$('svg').empty();
 		},
 
 		render: function() {
-			// console.log('work templ: ' + WorkTempl);
-			console.log('work model: ' + WorkModel.get("1"));
-			console.log('work model: ' + WorkModel.get("1").title);
-			// console.log('work model: ' + Object.keys(WorkModel.attributes));
-			var worksLength = (Object.keys(WorkModel.attributes)).length;
-			this.$el.html(this.template(WorkModel.get("1")));
+			_.each(WorkModel.attributes, function(obj, index){
+				self.$el.append(WorkTempl);
+				$('.workBlock').eq(index-1).attr('id', obj.title);
+				var listItemHtml = '<li>' + obj.items.join('</li><li>') + '</li>';
+				$('.workBlock').eq(index-1).find('ul').append(listItemHtml);
+				$('.workBlock').eq(index-1).find('img').attr('src', obj.imgSrc).attr('alt', obj.title);
+			});
+
 			$('#container').fadeOut();
 			// console.log('sssss ' + $('#middle').html());
 			if ( $('#middle').html() == '') {

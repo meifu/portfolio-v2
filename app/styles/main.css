@@ -698,7 +698,8 @@ body {
 #worksContainer {
   display: none;
   position: relative;
-  margin-left: 300px; }
+  margin-left: 300px;
+  padding-bottom: 100px; }
   #worksContainer .workBlock {
     width: 700px;
     left: 50%;
@@ -808,7 +809,7 @@ body {
   #contactWrap #emailContent {
     position: absolute;
     top: 10px;
-    left: -999px;
+    right: -999px;
     display: block;
     background-color: #f0f0f0;
     opacity: 0;
@@ -819,8 +820,10 @@ body {
     -o-transition: all .6s;
     transition: all .6s; }
     #contactWrap #emailContent.open {
-      left: 70px;
-      opacity: 1; }
+      right: 70px;
+      opacity: 1;
+      color: #715f85;
+      text-decoration: none; }
   #contactWrap ul li .link .active .vertical, #contactWrap ul li .link .hover .vertical {
     font-size: 13px; }
     #contactWrap ul li .link .active .vertical i, #contactWrap ul li .link .hover .vertical i {
