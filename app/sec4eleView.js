@@ -8,15 +8,23 @@ define([
 	var Sec4Elements = Backbone.View.extend({
 		el: '',
 		initialize: function () {
-			console.log('sec4 view');
+			// console.log('sec4 view');
 			this.render();
-			$(window).scroll(this.detectScroll);
+			// $(window).scroll(this.detectScroll);
 		},
 		Elements_sec4Left: [],
 		Elements_sec4Right: [],
 		render: function() {
+			var halfElementsNumbers = 0;
 			var browserWidth = $(window).innerWidth();
 			var browserHeight = $(window).innerHeight();
+			if (browserWidth > 1600) {
+				halfElementsNumbers = 10;
+			} else if ( (browserWidth > 1350) && (browserWidth <= 1600) ) {
+				halfElementsNumbers = 8;
+			} else {
+				halfElementsNumbers = 5;
+			}
 			var s4Left = Snap('#svg4left');
 			var s4Right = Snap('#svg4right');
 			var pentagonX, pentagonY;
@@ -25,7 +33,7 @@ define([
 			var svg1xRange = Math.floor((browserWidth*0.4)/48); //console.log('svg1xRange: ' + svg1xRange);
 			var svg1yRange = Math.floor((browserHeight)/48);
 
-			for (var i = 0; i < 5; i++) {
+			for (var i = 0; i < halfElementsNumbers; i++) {
 				pentagonX = Math.floor(Math.random()*svg1xRange + 1)*48;
 				pentagonY = Math.floor(Math.random()*svg1yRange + 1)*48;
 				pentagonXR = Math.floor(Math.random()*svg1xRange + 1)*48 + browserWidth*0.1;

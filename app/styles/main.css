@@ -569,6 +569,13 @@ body {
     font-size: 20px; }
   #middle .skill {
     height: 53px; }
+    #middle .skill span {
+      background-image: url(../../img/gradient.jpg);
+      background-repeat: no-repeat;
+      background-position: left bottom;
+      -webkit-background-size: 100% 1px;
+      -moz-background-size: 100% 1px;
+      background-size: 100% 1px; }
   #middle #skillWrap {
     height: 56px;
     overflow: hidden;
@@ -583,7 +590,7 @@ body {
     #middle #skillWrap #skillWrapInner.s2 {
       top: -67px; }
     #middle #skillWrap #skillWrapInner.s3 {
-      top: -134px; }
+      top: -138px; }
     #middle #skillWrap #skillWrapInner.s4 {
       top: -201px; }
     #middle #skillWrap #skillWrapInner.s5 {
@@ -674,6 +681,11 @@ body {
 .section {
   position: relative;
   width: 100%; }
+  .section .topicPic {
+    width: 30%;
+    height: auto;
+    position: absolute;
+    bottom: 0; }
 
 #sectionHTML {
   background-color: #000000;

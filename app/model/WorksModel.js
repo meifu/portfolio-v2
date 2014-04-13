@@ -21,7 +21,10 @@ define([
 		"5": { "title": "shokay", "imgSrc": "img/works/shokay_middle.jpg", "items": ["html, SASS", "javascript", "wordpress"]},
 		"6": { "title": "foreverlove", "imgSrc": "img/works/foreverlove_middle.jpg", "items": ["html, SASS", "javascript"]},
 		"7": { "title": "wedding", "imgSrc": "img/works/wedding_middle.jpg", "items": ["html, SASS", "javascript", "design with Photoshop"]},
-		"8": { "title": "kamia", "imgSrc": "img/works/kamia_middle.jpg", "items": ["html, SASS", "javascript", "wordpress"]}
+		"8": { "title": "kamia", "imgSrc": "img/works/kamia_middle.jpg", "items": ["html, SASS", "javascript", "wordpress"]},
+		"9": { "title": "artMusem", "imgSrc": "img/works/artMusem.jpg", "items": ["web design", "photoshop"]},
+		"10": { "title": "cards", "imgSrc": "img/works/cards.jpg", "items": ["card design", "illustrator"]},
+		"11": { "title": "logos", "imgSrc": "img/works/logos.jpg", "items": ["logo design", "illustrator"]}
 	});	
 
 	return worksCollection;

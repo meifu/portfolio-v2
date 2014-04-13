@@ -8,26 +8,34 @@ define([
 	var Sec1Elements = Backbone.View.extend({
 		el: '',
 		initialize: function () {
-			console.log('sec1 view');
+			// console.log('sec1 view');
 			this.render();
-			$(window).scroll(this.detectScroll);
+			// $(window).scroll(this.detectScroll);
 		},
-		browserHeight: $(window).innerHeight(),
-		browserWidth: $(window).innerWidth(),
+		// browserHeight: $(window).innerHeight(),
+		// browserWidth: $(window).innerWidth(),
 		Elements_sec1Left: [],
 		Elements_sec1Right: [],
 		render: function() {
-			this.browserWidth = $(window).innerWidth();
-			this.browserHeight = $(window).innerHeight();
+			var halfElementsNumbers = 0; 
+			var browserWidth = $(window).innerWidth();
+			var browserHeight = $(window).innerHeight();
+			if (browserWidth > 1600) {
+				halfElementsNumbers = 10;
+			} else if ( (browserWidth > 1350) && (browserWidth <= 1600) ) {
+				halfElementsNumbers = 8;
+			} else {
+				halfElementsNumbers = 5;
+			}
 			/********* Section1 ************/
 			var s1Left = Snap('#svg1left');
 			var s1Right = Snap('#svg1right');
 			// var rectx, recty;
-			var svg1xRange = Math.floor((this.browserWidth*0.4)/48); //console.log('svg1xRange: ' + svg1xRange);
-			var svg1yRange = Math.floor((this.browserHeight)/48);
+			var svg1xRange = Math.floor((browserWidth*0.4)/48); //console.log('svg1xRange: ' + svg1xRange);
+			var svg1yRange = Math.floor((browserHeight)/48);
 			var rectLeft = [], rectxLeft, rectyLeft, side1Left = [], side2Left = [], 
 			    rectRight = [], rectxRight, rectyRight, side1Right = [], side2Right = [];
-			for (var i = 0; i < 5; i++) {
+			for (var i = 0; i < halfElementsNumbers; i++) {
 				rectxLeft = Math.floor((Math.random()*svg1xRange) + 1)*48;
 				rectyLeft = Math.random()*svg1yRange*48;
 				rectLeft[i] = s1Left.rect(rectxLeft, rectyLeft, 12, 12);
@@ -44,7 +52,7 @@ define([
 				});
 				this.Elements_sec1Left[i] = s1Left.g(rectLeft[i], side1Left[i], side2Left[i]);
 
-				rectxRight = Math.floor((Math.random()*svg1xRange) + 1)*48 + this.browserWidth*0.1;
+				rectxRight = Math.floor((Math.random()*svg1xRange) + 1)*48 + browserWidth*0.1;
 				rectyRight = Math.random()*svg1yRange*48;
 				rectRight[i] = s1Right.rect(rectxRight, rectyRight, 12, 12);
 				rectRight[i].attr({

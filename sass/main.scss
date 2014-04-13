@@ -156,6 +156,14 @@ body{
     }
     .skill {
         height: 53px;
+        span {
+            background-image: url(../../img/gradient.jpg);
+            background-repeat: no-repeat;
+            background-position: left bottom;
+            -webkit-background-size: 100% 1px;
+            -moz-background-size: 100% 1px;
+            background-size: 100% 1px;
+        }
     }
     #skillWrap {
         height: 56px;
@@ -174,7 +182,8 @@ body{
             top: -$skillLineHeight;
         }
         #skillWrapInner.s3 {
-            top: -$skillLineHeight*2;
+            // top: -$skillLineHeight*2;
+            top: -138px;
         }
         #skillWrapInner.s4 {
             top: -$skillLineHeight*3;
@@ -220,6 +229,12 @@ body{
 .section {
     position: relative;
     width: 100%;
+    .topicPic {
+        width: 30%;
+        height: auto;
+        position: absolute;
+        bottom: 0;
+    }
 }
 #sectionHTML {
     background-color: #000000;

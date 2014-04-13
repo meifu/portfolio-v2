@@ -8,24 +8,32 @@ define([
 	var Sec2Elements = Backbone.View.extend({
 		el: '',
 		initialize: function () {
-			console.log('sec2 view');
+			// console.log('sec2 view');
 			this.render();
-			$(window).scroll(this.detectScroll);
+			// $(window).scroll(this.detectScroll);
 		},
 		// browserHeight: $(window).innerHeight(),
 		// browserWidth: $(window).innerWidth(),
 		Elements_sec2Left: [],
 		Elements_sec2Right: [],
 		render: function() {
+			var halfElementsNumbers = 0; 
 			var browserWidth = $(window).innerWidth();
 			var browserHeight = $(window).innerHeight();
+			if (browserWidth > 1600) {
+				halfElementsNumbers = 10;
+			} else if ( (browserWidth > 1350) && (browserWidth <= 1600) ) {
+				halfElementsNumbers = 8;
+			} else {
+				halfElementsNumbers = 5;
+			}
 			var s2Left = Snap('#svg2left');
 			var s2Right = Snap('#svg2right');
 			var triang1xLeft, triang1yLeft, triang1Left = [], triang2Left = [], triang3Left = [],
 			    triang1Right = [], triang2Right = [], triang3Right = [];
 			var svg1xRange = Math.floor((browserWidth*0.4)/48); //console.log('svg1xRange: ' + svg1xRange);
 			var svg1yRange = Math.floor((browserHeight)/48);
-			for (var i = 0; i < 5; i ++) {
+			for (var i = 0; i < halfElementsNumbers; i ++) {
 				triang1xLeft = Math.floor(Math.random()*svg1xRange + 1)*48;
 				triang1yLeft = Math.floor(Math.random()*svg1yRange + 1)*48;
 				triang1xRight = Math.floor(Math.random()*svg1xRange + 1)*48 + browserWidth*0.1;

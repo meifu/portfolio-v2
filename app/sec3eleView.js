@@ -8,17 +8,25 @@ define([
 	var Sec3Elements = Backbone.View.extend({
 		el: '',
 		initialize: function () {
-			console.log('sec3 view');
+			// console.log('sec3 view');
 			this.render();
-			$(window).scroll(this.detectScroll);
+			// $(window).scroll(this.detectScroll);
 		},
 		// browserHeight: $(window).innerHeight(),
 		// browserWidth: $(window).innerWidth(),
 		Elements_sec3Left: [],
 		Elements_sec3Right: [],
 		render: function() {
+			var halfElementsNumbers = 0; 
 			var browserWidth = $(window).innerWidth();
 			var browserHeight = $(window).innerHeight();
+			if (browserWidth > 1600) {
+				halfElementsNumbers = 10;
+			} else if ( (browserWidth > 1350) && (browserWidth <= 1600) ) {
+				halfElementsNumbers = 8;
+			} else {
+				halfElementsNumbers = 5;
+			}
 			var s3Left = Snap('#svg3left');
 			var s3Right = Snap('#svg3right');
 			var triPrism1x, triPrism1y;
@@ -26,7 +34,7 @@ define([
 			var svg1xRange = Math.floor((browserWidth*0.4)/48); //console.log('svg1xRange: ' + svg1xRange);
 			var svg1yRange = Math.floor((browserHeight)/48);
 
-			for (var i = 0; i < 5; i++) {
+			for (var i = 0; i < halfElementsNumbers; i++) {
 				triPrism1x = Math.floor(Math.random()*svg1xRange + 1)*48;
 				triPrism1y = Math.floor(Math.random()*svg1yRange + 1)*48;
 				triPrism1xR = Math.floor(Math.random()*svg1xRange + 1)*48 + browserWidth*0.1;
