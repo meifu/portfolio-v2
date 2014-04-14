@@ -6,10 +6,12 @@ define([
 ], function($, _, Backbone, Snap) {
 	// var self;
 	var Sec1Elements = Backbone.View.extend({
-		el: '',
+		el: '#sectionHTML',
+		topicImg: '',
 		initialize: function () {
 			// console.log('sec1 view');
 			this.render();
+			this.topicImg = this.$el.find('.topicPic').eq(0);
 			// $(window).scroll(this.detectScroll);
 		},
 		// browserHeight: $(window).innerHeight(),
@@ -17,22 +19,23 @@ define([
 		Elements_sec1Left: [],
 		Elements_sec1Right: [],
 		render: function() {
+			// console.log('topic img ' + this.topicImg);
 			var halfElementsNumbers = 0; 
 			var browserWidth = $(window).innerWidth();
 			var browserHeight = $(window).innerHeight();
 			if (browserWidth > 1600) {
-				halfElementsNumbers = 10;
+				halfElementsNumbers = 12;
 			} else if ( (browserWidth > 1350) && (browserWidth <= 1600) ) {
-				halfElementsNumbers = 8;
+				halfElementsNumbers = 10;
 			} else {
-				halfElementsNumbers = 5;
+				halfElementsNumbers = 7;
 			}
 			/********* Section1 ************/
 			var s1Left = Snap('#svg1left');
 			var s1Right = Snap('#svg1right');
 			// var rectx, recty;
 			var svg1xRange = Math.floor((browserWidth*0.4)/48); //console.log('svg1xRange: ' + svg1xRange);
-			var svg1yRange = Math.floor((browserHeight)/48);
+			var svg1yRange = Math.floor((1.2*browserHeight)/48);
 			var rectLeft = [], rectxLeft, rectyLeft, side1Left = [], side2Left = [], 
 			    rectRight = [], rectxRight, rectyRight, side1Right = [], side2Right = [];
 			for (var i = 0; i < halfElementsNumbers; i++) {
@@ -96,6 +99,10 @@ define([
 			$('#svg2left').fadeOut();
 			$('#svg2right').fadeOut();
 			
+			this.topicImg.animate({
+				'bottom': -translateY1*0.9,
+				'left': -translateY1*0.4
+			}, 1);
 		},
 
 		hoverChange: function(ele) {

@@ -6,10 +6,12 @@ define([
 ], function($, _, Backbone, Snap) {
 
 	var Sec4Elements = Backbone.View.extend({
-		el: '',
+		el: '#sectionOTHER',
+		topicImg: '',
 		initialize: function () {
 			// console.log('sec4 view');
 			this.render();
+			this.topicImg = this.$el.find('.topicPic').eq(0);
 			// $(window).scroll(this.detectScroll);
 		},
 		Elements_sec4Left: [],
@@ -19,11 +21,11 @@ define([
 			var browserWidth = $(window).innerWidth();
 			var browserHeight = $(window).innerHeight();
 			if (browserWidth > 1600) {
-				halfElementsNumbers = 10;
+				halfElementsNumbers = 12;
 			} else if ( (browserWidth > 1350) && (browserWidth <= 1600) ) {
-				halfElementsNumbers = 8;
+				halfElementsNumbers = 10;
 			} else {
-				halfElementsNumbers = 5;
+				halfElementsNumbers = 7;
 			}
 			var s4Left = Snap('#svg4left');
 			var s4Right = Snap('#svg4right');
@@ -31,7 +33,7 @@ define([
 			var pentaL = [], pentaSide1L = [], pentaSide2L = [],
 			    pentaR = [], pentaSide1R = [], pentaSide2R = [];
 			var svg1xRange = Math.floor((browserWidth*0.4)/48); //console.log('svg1xRange: ' + svg1xRange);
-			var svg1yRange = Math.floor((browserHeight)/48);
+			var svg1yRange = Math.floor((1.2*browserHeight)/48);
 
 			for (var i = 0; i < halfElementsNumbers; i++) {
 				pentagonX = Math.floor(Math.random()*svg1xRange + 1)*48;
@@ -81,6 +83,10 @@ define([
 			this.Elements_sec4Right.forEach(function(item, index){
 				item.animate({'transform': 't0 ' + translateY4}, 1);
 			});
+			this.topicImg.animate({
+				'bottom': -translateY4*0.9,
+				'left': -translateY4*0.4
+			}, 1);
 		},
 
 		hoverChange: function(ele) {

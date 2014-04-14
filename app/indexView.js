@@ -68,7 +68,7 @@ define([
 					$('#emailContent').addClass('open');
 				}
 			});
-
+			$('#sectionHTML').find('.topicPic').fadeIn(900);
 			// $(window).scroll(this.detectScroll);
 			$(window).bind('scroll', this.detectScroll);
 			
@@ -83,9 +83,9 @@ define([
 			var changeDistance2 = browserHeight*(2-bufferPercent);
 			var changeDistance3 = browserHeight*(3-bufferPercent);
 
-			var translateY1 = -$(window).scrollTop()*1.7;
-			var translateY2 = -$(window).scrollTop()*1.3 + browserHeight;
-			var translateY3 = -($(window).scrollTop()*1.1) + browserHeight*2;
+			var translateY1 = -$(window).scrollTop()*1.6;
+			var translateY2 = -$(window).scrollTop()*1.4 + browserHeight;
+			var translateY3 = -($(window).scrollTop()*1.2) + browserHeight*2;
 			var translateY4 = -$(window).scrollTop()*1 + browserHeight*3;
 
 			self.checkSkills($(window).scrollTop(), browserHeight);
@@ -94,18 +94,19 @@ define([
 			if ($(window).scrollTop() < changeDistance1) { 
 				self.s1_elem.scrolling(translateY1);
 				self.changeSectionPosition('#sectionCSS');
-				
+				$('#sectionCSS').find('.topicPic').css('display', 'none');
 			/****** section 2 ******/
 			} else if (($(window).scrollTop() >= changeDistance1) && ($(window).scrollTop() < changeDistance2)) {
 				self.s2_elem.scrolling(translateY2);
 				self.showAndHide(2);
 				self.changeSectionPosition('#sectionJS');
-				
+				$('#sectionCSS').find('.topicPic').fadeIn(900);
 			/****** section 3 ******/
 			} else if (($(window).scrollTop() >= changeDistance2) && ($(window).scrollTop() < changeDistance3)) {
 				self.s3_elem.scrolling(translateY3);
 				self.showAndHide(3);
 				self.changeSectionPosition('#sectionOTHER');
+				$('#sectionJS').find('.topicPic').fadeIn(900);
 			/****** section 4 ******/
 			} else if (($(window).scrollTop() >= changeDistance3)) {
 				self.s4_elem.scrolling(translateY4);
@@ -143,13 +144,13 @@ define([
 		}, 
 
 		checkSkills: function(scrollTop, browserHeight) {
-			if (scrollTop < browserHeight*1) { 
+			if (scrollTop < browserHeight*0.7) { 
 				$('#skillWrapInner').attr('class', 's1');
-			} else if ((scrollTop >= browserHeight*1) && (scrollTop < browserHeight*2)) {
+			} else if ((scrollTop >= browserHeight*0.7) && (scrollTop < browserHeight*1.7)) {
 				$('#skillWrapInner').attr('class', 's2');
-			} else if ((scrollTop >= browserHeight*2) && (scrollTop < browserHeight*3)) {
+			} else if ((scrollTop >= browserHeight*1.7) && (scrollTop < browserHeight*2.7)) {
 				$('#skillWrapInner').attr('class', 's3');
-			} else if ((scrollTop >= browserHeight*3)) {
+			} else if ((scrollTop >= browserHeight*2.7)) {
 				$('#skillWrapInner').attr('class', 's4');
 			}
 

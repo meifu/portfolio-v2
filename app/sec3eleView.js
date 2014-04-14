@@ -6,10 +6,12 @@ define([
 ], function($, _, Backbone, Snap) {
 
 	var Sec3Elements = Backbone.View.extend({
-		el: '',
+		el: '#sectionJS',
+		topicImg: '',
 		initialize: function () {
 			// console.log('sec3 view');
 			this.render();
+			this.topicImg = this.$el.find('.topicPic').eq(0);
 			// $(window).scroll(this.detectScroll);
 		},
 		// browserHeight: $(window).innerHeight(),
@@ -21,18 +23,18 @@ define([
 			var browserWidth = $(window).innerWidth();
 			var browserHeight = $(window).innerHeight();
 			if (browserWidth > 1600) {
-				halfElementsNumbers = 10;
+				halfElementsNumbers = 12;
 			} else if ( (browserWidth > 1350) && (browserWidth <= 1600) ) {
-				halfElementsNumbers = 8;
+				halfElementsNumbers = 10;
 			} else {
-				halfElementsNumbers = 5;
+				halfElementsNumbers = 7;
 			}
 			var s3Left = Snap('#svg3left');
 			var s3Right = Snap('#svg3right');
 			var triPrism1x, triPrism1y;
 			var triPrism1Left = [], triPrism2Left = [], triPrism3Left = [], triPrism1Right = [], triPrism2Right = [], triPrism3Right = [];
 			var svg1xRange = Math.floor((browserWidth*0.4)/48); //console.log('svg1xRange: ' + svg1xRange);
-			var svg1yRange = Math.floor((browserHeight)/48);
+			var svg1yRange = Math.floor((1.2*browserHeight)/48);
 
 			for (var i = 0; i < halfElementsNumbers; i++) {
 				triPrism1x = Math.floor(Math.random()*svg1xRange + 1)*48;
@@ -80,7 +82,10 @@ define([
 			this.Elements_sec3Right.forEach(function(item, index){
 				item.animate({'transform': 't0 ' + translateY3}, 1);
 			});
-
+			this.topicImg.animate({
+				'bottom': -translateY3*0.9,
+				'left': -translateY3*0.4
+			}, 1);
 		},
 
 		hoverChange: function(ele) {
