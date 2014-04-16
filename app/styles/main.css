@@ -730,7 +730,6 @@ body {
         position: absolute;
         top: 0;
         left: 0;
-        width: 600px;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.6);
         -moz-transition: all 0.6s;
@@ -738,9 +737,7 @@ body {
         transition: all 0.6s;
         opacity: 1; }
       #worksContainer .workBlock .blockInner .workDes {
-        width: 150px;
         padding: 20px 0;
-        right: 100px;
         position: absolute;
         -moz-transition: all 0.6s;
         -webkit-transition: all 0.6s;
@@ -752,9 +749,40 @@ body {
           margin-bottom: 10px; }
     #worksContainer .workBlock:hover .darkenLayer {
       opacity: 0; }
-    #worksContainer .workBlock:hover .workDes {
-      right: -50px; }
 
+@media (max-width: 799px) {
+  #middle {
+    position: absolute; }
+
+  #worksContainer .workBlock {
+    width: 100%; }
+    #worksContainer .workBlock img, #worksContainer .workBlock .darkenLayer {
+      width: 85%; }
+    #worksContainer .workBlock .workDes {
+      width: 15%;
+      right: 15%; }
+  #worksContainer .workBlock:hover .workDes {
+    right: 0; } }
+@media (min-width: 800px) {
+  #worksContainer .workBlock {
+    width: 500px; }
+    #worksContainer .workBlock img, #worksContainer .workBlock .darkenLayer {
+      width: 400px; }
+    #worksContainer .workBlock .workDes {
+      width: 100px;
+      right: 100px; }
+  #worksContainer .workBlock:hover .workDes {
+    right: 0; } }
+@media (min-width: 1001px) {
+  #worksContainer .workBlock {
+    width: 700px; }
+    #worksContainer .workBlock img, #worksContainer .workBlock .darkenLayer {
+      width: 600px; }
+    #worksContainer .workBlock .workDes {
+      width: 100px;
+      right: 100px; }
+  #worksContainer .workBlock:hover .workDes {
+    right: 0; } }
 #contactWrap ul {
   list-style: none; }
   #contactWrap ul li {

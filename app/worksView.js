@@ -36,7 +36,10 @@ define([
 					$('#skill' + i).html(SkillModel.attributes.description[i]);
 				}
 			}
-			$('#middle').addClass('leftSide');
+			if ($(window).innerWidth() > 800) {
+				$('#middle').addClass('leftSide');	
+			}
+			
 			$('#worksContainer').fadeIn();
 			$('#skillWrapInner').attr('class', 's5');
 			// $('.slider').glide(
