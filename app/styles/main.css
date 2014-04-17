@@ -668,6 +668,12 @@ body {
   #middle.leftSide #scroll {
     display: none; }
 
+#middle.atWork {
+  position: relative;
+  margin: 20px auto 0;
+  left: 0;
+  top: 0; }
+
 #svg1left, #svg1right, #svg2left, #svg2right, #svg3left, #svg3right, #svg4left, #svg4right {
   z-index: 1;
   position: fixed;
@@ -793,7 +799,7 @@ body {
       text-decoration: none;
       padding: 10px 0;
       margin: 0 auto;
-      width: 60px;
+      width: 80px;
       height: 40px;
       font-size: 16px;
       font-weight: 200;
@@ -837,10 +843,10 @@ body {
       -o-transform: matrix3d(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, -1, 0, 0, 1);
       transform: matrix3d(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, -1, 0, 0, 1); }
     #contactWrap ul li .link:hover .hover {
-      -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, -60, 0, 0, 1);
-      -moz-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, -60, 0, 0, 1);
-      -o-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, -60, 0, 0, 1);
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, -60, 0, 0, 1); }
+      -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, -80, 0, 0, 1);
+      -moz-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, -80, 0, 0, 1);
+      -o-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, -80, 0, 0, 1);
+      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, -80, 0, 0, 1); }
 
 #contactWrap {
   position: fixed;
@@ -862,7 +868,7 @@ body {
     -o-transition: all .6s;
     transition: all .6s; }
     #contactWrap #emailContent.open {
-      right: 70px;
+      right: 80px;
       opacity: 1;
       color: #715f85;
       text-decoration: none; }

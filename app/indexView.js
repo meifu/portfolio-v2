@@ -51,6 +51,7 @@ define([
 			$('.section').css('height', this.browserHeight).fadeIn();
 			
 			var nav_template = _.template(NavTempl);
+			// $('#middle').removeClass('atWork');	
 			$('#middle').html(nav_template);
 			$('#middle').removeClass('leftSide');
 			// console.log('test model: ' + SkillModel.attributes.description[0]);

@@ -214,6 +214,12 @@ body{
         display: none;
     }
 }
+#middle.atWork {
+    position: relative;
+    margin: 20px auto 0;
+    left: 0;
+    top: 0;
+}
 
 #svg1left, #svg1right, #svg2left, #svg2right, #svg3left, #svg3right, #svg4left, #svg4right {
     z-index: 1;
@@ -381,7 +387,7 @@ body{
 }
 
 
-@include rotateCSS('#contactWrap', 60px, 40px, -60);
+@include rotateCSS('#contactWrap', 80px, 40px, -80);
 #contactWrap {
     position: fixed;
     right: 0;
@@ -402,7 +408,7 @@ body{
         -o-transition: all .6s;
         transition: all .6s;
         &.open {
-            right: 70px;
+            right: 80px;
             opacity: 1;
             color: #715f85;
             text-decoration: none;
