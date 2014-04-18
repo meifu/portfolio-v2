@@ -662,18 +662,6 @@ body {
         -o-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, -112, 0, 0, 1);
         transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, -112, 0, 0, 1); }
 
-#middle.leftSide {
-  margin-left: 0;
-  left: 0%; }
-  #middle.leftSide #scroll {
-    display: none; }
-
-#middle.atWork {
-  position: relative;
-  margin: 20px auto 0;
-  left: 0;
-  top: 0; }
-
 #svg1left, #svg1right, #svg2left, #svg2right, #svg3left, #svg3right, #svg4left, #svg4right {
   z-index: 1;
   position: fixed;
@@ -718,17 +706,14 @@ body {
 #worksContainer {
   display: none;
   position: relative;
-  margin-left: 300px;
   padding-bottom: 100px; }
   #worksContainer .workBlock {
-    width: 700px;
-    left: 50%;
-    margin: 100px auto 0; }
+    float: left; }
     #worksContainer .workBlock .blockInner {
       position: relative;
       width: 100%; }
       #worksContainer .workBlock .blockInner img, #worksContainer .workBlock .blockInner .darkenLayer {
-        width: 600px; }
+        width: 100%; }
       #worksContainer .workBlock .blockInner img {
         display: block;
         position: relative; }
@@ -737,7 +722,7 @@ body {
         top: 0;
         left: 0;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(0, 0, 0, 0.8);
         -moz-transition: all 0.6s;
         -webkit-transition: all 0.6s;
         transition: all 0.6s;
@@ -755,25 +740,28 @@ body {
           margin-bottom: 10px; }
     #worksContainer .workBlock:hover .darkenLayer {
       opacity: 0; }
+  #worksContainer .workBlock.rightSide {
+    float: right; }
 
 @media (max-width: 799px) {
-  #middle {
-    position: absolute; }
-
   #worksContainer .workBlock {
-    width: 100%; }
-    #worksContainer .workBlock img, #worksContainer .workBlock .darkenLayer {
-      width: 85%; }
+    width: 80%;
+    margin: 2% auto;
+    float: none; }
     #worksContainer .workBlock .workDes {
       width: 15%;
       right: 15%; }
   #worksContainer .workBlock:hover .workDes {
-    right: 0; } }
+    right: 0; }
+  #worksContainer .workBlock.rightSide {
+    float: none; } }
 @media (min-width: 800px) {
   #worksContainer .workBlock {
-    width: 500px; }
+    width: 27%;
+    height: 155px;
+    margin: 2% 7%; }
     #worksContainer .workBlock img, #worksContainer .workBlock .darkenLayer {
-      width: 400px; }
+      width: 100%; }
     #worksContainer .workBlock .workDes {
       width: 100px;
       right: 100px; }
@@ -781,10 +769,24 @@ body {
     right: 0; } }
 @media (min-width: 1001px) {
   #worksContainer .workBlock {
-    width: 700px; }
-    #worksContainer .workBlock img, #worksContainer .workBlock .darkenLayer {
-      width: 600px; }
-    #worksContainer .workBlock .workDes {
+    width: 28%;
+    height: 232px;
+    margin: 2% 10%; }
+    #worksContainer .workBlock .blockInner img, #worksContainer .workBlock .blockInner .darkenLayer {
+      width: 100%; }
+    #worksContainer .workBlock .blockInner .workDes {
+      width: 100px;
+      right: 100px; }
+  #worksContainer .workBlock:hover .workDes {
+    right: 0; } }
+@media (min-width: 1550px) {
+  #worksContainer .workBlock {
+    width: 30%;
+    height: 332px;
+    margin: 2% 10%; }
+    #worksContainer .workBlock .blockInner img, #worksContainer .workBlock .blockInner .darkenLayer {
+      width: 100%; }
+    #worksContainer .workBlock .blockInner .workDes {
       width: 100px;
       right: 100px; }
   #worksContainer .workBlock:hover .workDes {
