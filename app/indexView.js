@@ -44,8 +44,6 @@ define([
 		render: function() {
 			this.browserWidth = $(window).innerWidth();
 			this.browserHeight = $(window).innerHeight();
-			// console.log('browserWidth: ' + browserWidth);
-			// console.log('browserHeight: ' + browserHeight);
 			$('#worksContainer').fadeOut();
 			$('#container').fadeIn().css('height', this.browserHeight*4);
 			$('.section').css('height', this.browserHeight).fadeIn();
@@ -84,10 +82,10 @@ define([
 			var changeDistance2 = browserHeight*(2-bufferPercent);
 			var changeDistance3 = browserHeight*(3-bufferPercent);
 
-			var translateY1 = -$(window).scrollTop()*1.6;
-			var translateY2 = -$(window).scrollTop()*1.4 + browserHeight;
+			var translateY1 = -$(window).scrollTop()*1.4;
+			var translateY2 = -$(window).scrollTop()*1.3 + browserHeight;
 			var translateY3 = -($(window).scrollTop()*1.2) + browserHeight*2;
-			var translateY4 = -$(window).scrollTop()*1 + browserHeight*3;
+			var translateY4 = -$(window).scrollTop()*1.1 + browserHeight*3;
 
 			self.checkSkills($(window).scrollTop(), browserHeight);
 			
@@ -102,6 +100,7 @@ define([
 				self.showAndHide(2);
 				self.changeSectionPosition('#sectionJS');
 				$('#sectionCSS').find('.topicPic').fadeIn(900);
+				$('#sectionJS').find('.topicPic').fadeOut(500);
 			/****** section 3 ******/
 			} else if (($(window).scrollTop() >= changeDistance2) && ($(window).scrollTop() < changeDistance3)) {
 				self.s3_elem.scrolling(translateY3);
@@ -112,7 +111,13 @@ define([
 			} else if (($(window).scrollTop() >= changeDistance3)) {
 				self.s4_elem.scrolling(translateY4);
 				self.showAndHide(4);
-			} 
+			}
+
+			// console.log('browserWidth ' + self.browserWidth);
+			if (self.browserWidth < 800) {
+				self.moveWithScroll($(window).scrollTop());
+			}
+
 		},
 
 		showAndHide: function(toShow) {
@@ -183,6 +188,11 @@ define([
 				});
 			});
 			
+		},
+
+		moveWithScroll: function(scrolltop) {
+			var topMoveValue = (scrolltop + 30) + 'px';
+			$('#middle').css('top', topMoveValue);
 		}
 
 	});

@@ -22,8 +22,9 @@ define([
 			_.each(WorkModel.attributes, function(obj, index){ console.log('index ' + index);
 				self.$el.append(WorkTempl);
 				$('.workBlock').eq(index-1).attr('id', obj.title);
-				var listItemHtml = '<li>' + obj.items.join('</li><li>') + '</li>';
-				$('.workBlock').eq(index-1).find('ul').append(listItemHtml);
+				// var listItemHtml = '<li>' + obj.items.join('</li><li>') + '</li>';
+				// $('.workBlock').eq(index-1).find('ul').append(listItemHtml);
+				$('.workBlock').eq(index-1).find('.workDes').append('<span>' + obj.items.join(' + ') + '</span>');
 				$('.workBlock').eq(index-1).find('img').attr('src', obj.imgSrc).attr('alt', obj.title);
 				if (index%2 === 0) {
 					$('.workBlock').eq(index-1).addClass('rightSide');

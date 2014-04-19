@@ -96,8 +96,8 @@ define([
 				$('#svg1right').fadeIn();
 			}
 
-			$('#svg2left').fadeOut();
-			$('#svg2right').fadeOut();
+			// $('#svg2left').fadeOut();
+			// $('#svg2right').fadeOut();
 			
 			this.topicImg.animate({
 				'bottom': -translateY1*0.9,
