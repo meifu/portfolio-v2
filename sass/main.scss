@@ -130,9 +130,9 @@ body{
     top: 50%;
     margin-top: -251px;
     z-index: 99;
-    -moz-transition: all 0.6s;
-    -webkit-transition: all 0.6s;
-    transition: all 0.6s;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
     a {
         #logo {
         
@@ -191,7 +191,6 @@ body{
         #skillWrapInner.s5 {
             top: -$skillLineHeight*4;
         }
-
     }
     #desc1 {
         margin-top: 55px;
@@ -207,25 +206,12 @@ body{
     @include rotateCSS(nav, 112px, 40px, -112);
     
 }
-// #middle.leftSide {
-//     margin-left: 0;
-//     left: 0%;
-//     #scroll {
-//         display: none;
-//     }
-// }
-// #middle.atWork {
-//     position: relative;
-//     margin: 20px auto 0;
-//     left: 0;
-//     top: 0;
-// }
 
 #svg1left, #svg1right, #svg2left, #svg2right, #svg3left, #svg3right, #svg4left, #svg4right {
     z-index: 1;
     position: fixed;
     width: 50%;
-    display: none;
+    // display: none;
     top: 0px;
 }
 
@@ -303,24 +289,27 @@ body{
                 opacity: 1;
             }
             .workDes {
-                // width: 150px;
-                padding: 20px 0;
-                // right: 100px;
-                position: absolute;
+                padding: 0;
+                position: relative;
                 -moz-transition: all 0.6s;
                 -webkit-transition: all 0.6s;
                 transition: all 0.6s;
-                li {
+                opacity: 0;
+                span {
                     text-align: center;
-                    color: #eee;
+                    color: #cacaca;
                     list-style: none;
-                    margin-bottom: 10px;
+                    // margin-bottom: 10px;
+                    float: left;
                 }
             }
         }
         &:hover {
             .darkenLayer {
                 opacity: 0;
+            }
+            .workDes {
+                opacity: 1;
             }
         }
     }
@@ -331,29 +320,25 @@ body{
 }
 @media (max-width: 799px) {
     #middle {
-    //     position: relative;
-    //     margin: 20px auto;
-    //     left: auto;
-        
+        position: absolute;
+        top: 30px;
+        margin-top: 0;
     }
     #worksContainer {
+        margin-top: 600px;
         .workBlock {
             width: 80%;
             margin: 2% auto;
             float: none;
-            // img, .darkenLayer {
-            //     width: 85%;
+            // .workDes {
+            //     position: relative;
             // }
-            .workDes {
-                width: 15%;
-                right: 15%;
-            }
         }
-        .workBlock:hover {
-            .workDes {
-                right: 0;
-            }
-        }
+        // .workBlock:hover {
+        //     .workDes {
+        //         right: 0;
+        //     }
+        // }
         .workBlock.rightSide {
             float: none;
         }
@@ -370,16 +355,12 @@ body{
                 // width: 400px;
                 width: 100%;
             }
-            .workDes {
-                width: 100px;
-                right: 100px;
-            }
         }
-        .workBlock:hover {
-            .workDes {
-                right: 0;
-            }
-        }
+        // .workBlock:hover {
+        //     .workDes {
+        //         right: 0;
+        //     }
+        // }
     }
 }
 @media (min-width: 1001px) {
@@ -387,22 +368,12 @@ body{
         .workBlock {
             // width: 700px;
             width: 28%;
-            height: 232px;
+            height: 200px;
             margin: 2% 10%;
             .blockInner {
                 img, .darkenLayer {
-                    // width: 600px;
                     width: 100%;
                 }
-                .workDes {
-                    width: 100px;
-                    right: 100px;
-                }
-            }
-        }
-        .workBlock:hover {
-            .workDes {
-                right: 0;
             }
         }
     }
@@ -412,22 +383,13 @@ body{
         .workBlock {
             // width: 700px;
             width: 30%;
-            height: 332px;
+            height: 300px;
             margin: 2% 10%;
             .blockInner {
                 img, .darkenLayer {
                     // width: 600px;
                     width: 100%;
                 }
-                .workDes {
-                    width: 100px;
-                    right: 100px;
-                }
-            }
-        }
-        .workBlock:hover {
-            .workDes {
-                right: 0;
             }
         }
     }

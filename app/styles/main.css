@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
 /*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 /*
  * What follows is the result of much research on cross-browser styling.
@@ -9,6 +8,7 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
 html {
   color: #525252;
   font-size: 1em;
@@ -549,9 +549,9 @@ body {
   top: 50%;
   margin-top: -251px;
   z-index: 99;
-  -moz-transition: all 0.6s;
-  -webkit-transition: all 0.6s;
-  transition: all 0.6s; }
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s; }
   #middle a #logo {
     display: block;
     width: 200px;
@@ -666,7 +666,6 @@ body {
   z-index: 1;
   position: fixed;
   width: 50%;
-  display: none;
   top: 0px; }
 
 #svg1right, #svg2right, #svg3right, #svg4right {
@@ -731,69 +730,59 @@ body {
         transition: all 0.6s;
         opacity: 1; }
       #worksContainer .workBlock .blockInner .workDes {
-        padding: 20px 0;
-        position: absolute;
+        padding: 0;
+        position: relative;
         -moz-transition: all 0.6s;
         -webkit-transition: all 0.6s;
-        transition: all 0.6s; }
-        #worksContainer .workBlock .blockInner .workDes li {
+        transition: all 0.6s;
+        opacity: 0; }
+        #worksContainer .workBlock .blockInner .workDes span {
           text-align: center;
-          color: #eee;
+          color: #cacaca;
           list-style: none;
-          margin-bottom: 10px; }
+          float: left; }
     #worksContainer .workBlock:hover .darkenLayer {
       opacity: 0; }
+    #worksContainer .workBlock:hover .workDes {
+      opacity: 1; }
   #worksContainer .workBlock.rightSide {
     float: right; }
 
 @media (max-width: 799px) {
-  #worksContainer .workBlock {
-    width: 80%;
-    margin: 2% auto;
-    float: none; }
-    #worksContainer .workBlock .workDes {
-      width: 15%;
-      right: 15%; }
-  #worksContainer .workBlock:hover .workDes {
-    right: 0; }
-  #worksContainer .workBlock.rightSide {
-    float: none; } }
+  #middle {
+    position: absolute;
+    top: 30px;
+    margin-top: 0; }
+
+  #worksContainer {
+    margin-top: 600px; }
+    #worksContainer .workBlock {
+      width: 80%;
+      margin: 2% auto;
+      float: none; }
+    #worksContainer .workBlock.rightSide {
+      float: none; } }
 @media (min-width: 800px) {
   #worksContainer .workBlock {
     width: 27%;
     height: 155px;
     margin: 2% 7%; }
     #worksContainer .workBlock img, #worksContainer .workBlock .darkenLayer {
-      width: 100%; }
-    #worksContainer .workBlock .workDes {
-      width: 100px;
-      right: 100px; }
-  #worksContainer .workBlock:hover .workDes {
-    right: 0; } }
+      width: 100%; } }
 @media (min-width: 1001px) {
   #worksContainer .workBlock {
     width: 28%;
-    height: 232px;
+    height: 200px;
     margin: 2% 10%; }
     #worksContainer .workBlock .blockInner img, #worksContainer .workBlock .blockInner .darkenLayer {
-      width: 100%; }
-    #worksContainer .workBlock .blockInner .workDes {
-      width: 100px;
-      right: 100px; }
-  #worksContainer .workBlock:hover .workDes {
-    right: 0; } }
+      width: 100%; } }
 @media (min-width: 1550px) {
   #worksContainer .workBlock {
     width: 30%;
-    height: 332px;
+    height: 300px;
     margin: 2% 10%; }
     #worksContainer .workBlock .blockInner img, #worksContainer .workBlock .blockInner .darkenLayer {
-      width: 100%; }
-    #worksContainer .workBlock .blockInner .workDes {
-      width: 100px;
-      right: 100px; }
-  #worksContainer .workBlock:hover .workDes {
-    right: 0; } }
+      width: 100%; } }
 #contactWrap ul {
   list-style: none; }
   #contactWrap ul li {
