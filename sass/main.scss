@@ -130,9 +130,9 @@ body{
     top: 50%;
     margin-top: -251px;
     z-index: 99;
-    -moz-transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
+    -moz-transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+    transition: all 0.1s;
     a {
         #logo {
         
@@ -318,10 +318,29 @@ body{
     }
 
 }
-@media (max-width: 799px) {
+@media (max-width: 449px) {
     #middle {
         position: absolute;
-        top: 30px;
+        top: 10px;
+        margin-top: 0;
+        margin-left: -100px;
+        width: 200px;
+        a {
+            #logo {
+                width: 100px;
+                height: 100px;
+                background: url(../../img/logo3.png) no-repeat 0 0;
+            }
+        }
+        .skill {
+            font-size: 16px;
+        }
+    }
+}
+@media (min-width: 450px) {
+    #middle {
+        position: absolute;
+        top: 20px;
         margin-top: 0;
     }
     #worksContainer {
