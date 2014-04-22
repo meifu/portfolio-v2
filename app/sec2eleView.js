@@ -26,8 +26,12 @@ define([
 				halfElementsNumbers = 12;
 			} else if ( (browserWidth > 1350) && (browserWidth <= 1600) ) {
 				halfElementsNumbers = 10;
-			} else {
+			} else if ((browserWidth > 900) && (browserWidth <= 1350) ) {
 				halfElementsNumbers = 7;
+			} else if ((browserWidth > 600) && (browserWidth <= 900) ) {
+				halfElementsNumbers = 5;
+			} else {
+				halfElementsNumbers = 3;
 			}
 			var s2Left = Snap('#svg2left');
 			var s2Right = Snap('#svg2right');

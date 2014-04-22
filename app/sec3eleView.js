@@ -26,8 +26,12 @@ define([
 				halfElementsNumbers = 12;
 			} else if ( (browserWidth > 1350) && (browserWidth <= 1600) ) {
 				halfElementsNumbers = 10;
-			} else {
+			} else if ((browserWidth > 900) && (browserWidth <= 1350) ) {
 				halfElementsNumbers = 7;
+			} else if ((browserWidth > 600) && (browserWidth <= 900) ) {
+				halfElementsNumbers = 5;
+			} else {
+				halfElementsNumbers = 3;
 			}
 			var s3Left = Snap('#svg3left');
 			var s3Right = Snap('#svg3right');

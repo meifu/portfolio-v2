@@ -130,9 +130,9 @@ body{
     top: 50%;
     margin-top: -251px;
     z-index: 99;
-    -moz-transition: all 0.1s;
-    -webkit-transition: all 0.1s;
-    transition: all 0.1s;
+    // -moz-transition: all 0.1s;
+    // -webkit-transition: all 0.1s;
+    // transition: all 0.1s;
     a {
         #logo {
         
@@ -210,6 +210,7 @@ body{
     z-index: 1;
     position: fixed;
     width: 50%;
+    height: 120%;
     // display: none;
     top: 0px;
 }
@@ -258,10 +259,7 @@ body{
     // margin-left: 300px;
     padding-bottom: 100px;
     .workBlock {
-        // position: absolute;
-        // width: 700px;
-        // left: 50%;
-        // margin: 100px auto 0;
+        
         float: left;
         .blockInner {
             position: relative;
@@ -315,6 +313,13 @@ body{
     .workBlock.rightSide {
         float: right;
     }
+    .workBlock.focus {
+        .blockInner {
+            .darkenLayer {
+                opacity: 0;
+            }
+        }
+    }
 
 }
 @media (max-width: 449px) {
@@ -335,6 +340,21 @@ body{
             font-size: 16px;
         }
     }
+    #worksContainer {
+        margin-top: 570px;
+        .workBlock {
+            width: 70%;
+            margin: 2% auto;
+            float: none;
+            
+        }
+        .workBlock.rightSide {
+            float: none;
+        }
+    }
+    #contactWrap {
+        display: none;
+    }
 }
 @media (min-width: 450px) {
     #middle {
@@ -348,18 +368,14 @@ body{
             width: 80%;
             margin: 2% auto;
             float: none;
-            // .workDes {
-            //     position: relative;
-            // }
+            
         }
-        // .workBlock:hover {
-        //     .workDes {
-        //         right: 0;
-        //     }
-        // }
         .workBlock.rightSide {
             float: none;
         }
+    }
+    #contactWrap {
+        display: block;
     }
 }
 @media (min-width: 800px) {
@@ -373,21 +389,21 @@ body{
         margin-top: -251px;
     }
     #worksContainer {
+        margin-top: 0;
         .workBlock {
             // width: 500px;
             width: 27%;
             height: 155px;
             margin: 2% 7%;
+            float: left;
             img, .darkenLayer {
                 // width: 400px;
                 width: 100%;
             }
         }
-        // .workBlock:hover {
-        //     .workDes {
-        //         right: 0;
-        //     }
-        // }
+        .workBlock.rightSide {
+            float: right;
+        }
     }
 }
 @media (min-width: 1001px) {

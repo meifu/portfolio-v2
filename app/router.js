@@ -27,12 +27,12 @@ define([
     },
 
     index: function() {
-      console.log('this is router');
+      // console.log('this is router');
       var indexObj = new IndexView();
     },
 
     works: function() {
-      console.log('this is works');
+      // console.log('this is works');
       var worksObj = new WorksView();
     }
 

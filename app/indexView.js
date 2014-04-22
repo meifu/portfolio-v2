@@ -69,7 +69,7 @@ define([
 			});
 			$('#sectionHTML').find('.topicPic').fadeIn(900);
 			// $(window).scroll(this.detectScroll);
-			$(document).bind('scroll', this.detectScroll);
+			$(window).bind('scroll', this.detectScroll);
 			
 		}, //end render
 
@@ -112,10 +112,10 @@ define([
 				self.showAndHide(4);
 			}
 
-			// console.log('browserWidth ' + self.browserWidth);
-			if (self.browserWidth < 800) {
+			var url_location = window.location.hash;
+			if ((self.browserWidth < 800) && (!url_location)) { //要是首頁才讓middle跟著scroll
 				self.moveWithScroll($(window).scrollTop());
-			}
+			} 
 
 		},
 

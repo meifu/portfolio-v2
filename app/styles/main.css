@@ -548,10 +548,7 @@ body {
   left: 50%;
   top: 50%;
   margin-top: -251px;
-  z-index: 99;
-  -moz-transition: all 0.1s;
-  -webkit-transition: all 0.1s;
-  transition: all 0.1s; }
+  z-index: 99; }
   #middle a #logo {
     display: block;
     width: 200px;
@@ -666,6 +663,7 @@ body {
   z-index: 1;
   position: fixed;
   width: 50%;
+  height: 120%;
   top: 0px; }
 
 #svg1right, #svg2right, #svg3right, #svg4right {
@@ -747,6 +745,8 @@ body {
       opacity: 1; }
   #worksContainer .workBlock.rightSide {
     float: right; }
+  #worksContainer .workBlock.focus .blockInner .darkenLayer {
+    opacity: 0; }
 
 @media (max-width: 449px) {
   #middle {
@@ -760,7 +760,19 @@ body {
       height: 100px;
       background: url(../../img/logo3.png) no-repeat 0 0; }
     #middle .skill {
-      font-size: 16px; } }
+      font-size: 16px; }
+
+  #worksContainer {
+    margin-top: 570px; }
+    #worksContainer .workBlock {
+      width: 70%;
+      margin: 2% auto;
+      float: none; }
+    #worksContainer .workBlock.rightSide {
+      float: none; }
+
+  #contactWrap {
+    display: none; } }
 @media (min-width: 450px) {
   #middle {
     position: absolute;
@@ -774,7 +786,10 @@ body {
       margin: 2% auto;
       float: none; }
     #worksContainer .workBlock.rightSide {
-      float: none; } }
+      float: none; }
+
+  #contactWrap {
+    display: block; } }
 @media (min-width: 800px) {
   #middle {
     text-align: center;
@@ -785,12 +800,17 @@ body {
     top: 50%;
     margin-top: -251px; }
 
-  #worksContainer .workBlock {
-    width: 27%;
-    height: 155px;
-    margin: 2% 7%; }
-    #worksContainer .workBlock img, #worksContainer .workBlock .darkenLayer {
-      width: 100%; } }
+  #worksContainer {
+    margin-top: 0; }
+    #worksContainer .workBlock {
+      width: 27%;
+      height: 155px;
+      margin: 2% 7%;
+      float: left; }
+      #worksContainer .workBlock img, #worksContainer .workBlock .darkenLayer {
+        width: 100%; }
+    #worksContainer .workBlock.rightSide {
+      float: right; } }
 @media (min-width: 1001px) {
   #worksContainer .workBlock {
     width: 28%;

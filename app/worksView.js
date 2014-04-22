@@ -19,11 +19,12 @@ define([
 		},
 
 		render: function() {
-			_.each(WorkModel.attributes, function(obj, index){ console.log('index ' + index);
+			var $middlePart = $('#middle'); 
+			_.each(WorkModel.attributes, function(obj, index){ 
 				self.$el.append(WorkTempl);
 				$('.workBlock').eq(index-1).attr('id', obj.title);
 				// var listItemHtml = '<li>' + obj.items.join('</li><li>') + '</li>';
-				// $('.workBlock').eq(index-1).find('ul').append(listItemHtml);
+				// workBlocks.eq(index-1).find('ul').append(listItemHtml);
 				$('.workBlock').eq(index-1).find('.workDes').append('<span>' + obj.items.join(' + ') + '</span>');
 				$('.workBlock').eq(index-1).find('img').attr('src', obj.imgSrc).attr('alt', obj.title);
 				if (index%2 === 0) {
@@ -32,28 +33,58 @@ define([
 			});
 
 			$('#container').fadeOut();
-			// console.log('sssss ' + $('#middle').html());
-			if ( $('#middle').html() == '') {
+			$(window).scrollTop(0);
+			if ( $middlePart.html() == '') {
 				var nav_template = _.template(NavTempl);
-				$('#middle').html(nav_template);	
+				$middlePart.html(nav_template);	
 				for (var i = 0; i < SkillModel.attributes.description.length; i++) {
 					$('#skill' + i).html(SkillModel.attributes.description[i]);
 				}
 			}
-			// if ($(window).innerWidth() > 800) {
-			// 	$('#middle').addClass('leftSide');	
-			// }
-			// $('#middle').addClass('atWork');	
 			
 			$('#worksContainer').fadeIn();
 			$('#skillWrapInner').attr('class', 's5');
-			// $('.slider').glide(
-			// 	// {autoplay: 3000
-			// 	// ,arrows: 'body'
-			// 	// ,navigation: 'body'}
-			// );
-
+			
 			$(window).unbind('scroll', this.detectScroll);
+			var url_location = window.location.hash;
+			if (($(window).innerWidth() < 800) && (url_location == '#works')) {
+				$middlePart.css('top','0px');
+			}
+
+			var workBlocks = this.getElementsByClassName(document.body, 'workBlock');
+			$(workBlocks).each(function(index, item){
+				var targetEle = document.getElementById(item.getAttribute('id'));
+				targetEle.addEventListener('touchstart', self.touchFocusWork, false);
+				// targetEle.addEventListener('touchleave', self.touchUnfocusWork, false);
+			});
+			
+		},
+
+		getElementsByClassName: function (node, classname) {
+			var a = [];
+		    var re = new RegExp('(^| )'+classname+'( |$)');
+		    var els = node.getElementsByTagName("*");
+		    for(var i=0,j=els.length; i<j; i++)
+		        if(re.test(els[i].className))a.push(els[i]);
+		    return a;
+		},
+
+		touchFocusWork: function(e) {
+			// $('.workBlock .darkenLayer').css('opacity',0);
+			// $(e.target).parent('.workBlock').css('opacity',0);
+			// $(e.target).parent('.workBlock').toggleClass('focus');
+			if ($(e.target).parent('.workBlock').hasClass('focus')) {
+				$(e.target).parent('.workBlock').removeClass('focus');
+			} else {
+				$(e.target).parent('.workBlock').addClass('focus');
+			}
+		},
+
+		touchUnfocusWork: function(e) {
+			window.setTimeout(function(){
+				$('.workBlock .darkenLayer').css('opacity',1);
+			}, 1000);
+			
 		}
 		
 	});
