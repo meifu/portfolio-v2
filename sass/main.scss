@@ -121,7 +121,7 @@ body{
     z-index: 2;
 }
 
-#middle{
+#middle {
     text-align: center;
     width: 300px;
     position: fixed;
@@ -202,7 +202,6 @@ body{
         width: 31px;
         height: 23px;
     }
-
     @include rotateCSS(nav, 112px, 40px, -112);
     
 }
@@ -364,6 +363,15 @@ body{
     }
 }
 @media (min-width: 800px) {
+    #middle {
+        text-align: center;
+        width: 300px;
+        position: fixed;
+        margin-left: -150px;
+        left: 50%;
+        top: 50%;
+        margin-top: -251px;
+    }
     #worksContainer {
         .workBlock {
             // width: 500px;

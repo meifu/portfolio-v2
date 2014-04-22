@@ -776,6 +776,15 @@ body {
     #worksContainer .workBlock.rightSide {
       float: none; } }
 @media (min-width: 800px) {
+  #middle {
+    text-align: center;
+    width: 300px;
+    position: fixed;
+    margin-left: -150px;
+    left: 50%;
+    top: 50%;
+    margin-top: -251px; }
+
   #worksContainer .workBlock {
     width: 27%;
     height: 155px;

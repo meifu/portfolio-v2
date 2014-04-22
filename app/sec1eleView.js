@@ -21,7 +21,7 @@ define([
 		render: function() {
 			// console.log('topic img ' + this.topicImg);
 			var halfElementsNumbers = 0; 
-			var browserWidth = $(window).innerWidth();
+			var browserWidth = $(window).innerWidth(); 
 			var browserHeight = $(window).innerHeight();
 			if (browserWidth > 1600) {
 				halfElementsNumbers = 12;

@@ -69,12 +69,11 @@ define([
 			});
 			$('#sectionHTML').find('.topicPic').fadeIn(900);
 			// $(window).scroll(this.detectScroll);
-			$(window).bind('scroll', this.detectScroll);
+			$(document).bind('scroll', this.detectScroll);
 			
 		}, //end render
 
 		detectScroll: function() {
-			// console.log('the rect ' + self.rectLeft);
 			var browserHeight = $(window).innerHeight();
 			// console.log('you are scrolling at ' + $(window).scrollTop());
 			var bufferPercent = 0.5;
