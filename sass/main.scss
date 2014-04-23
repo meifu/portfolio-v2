@@ -252,6 +252,13 @@ body{
     z-index: 2;
     background-color: #111111;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHhtbG5zOnhsaW5rPSdodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rJyB3aWR0aD0nNicgaGVpZ2h0PSc2Jz4KICA8bGluZSB4MT0nMzAlJyB5MT0nMzAlJyB4Mj0nNzAlJyB5Mj0nNzAlJyBzdHJva2Utd2lkdGg9JzEnIHN0cm9rZT0nIzAwMDAwMCcvPgogIDxsaW5lIHgxPSc3MCUnIHkxPSczMCUnIHgyPSczMCUnIHkyPSc3MCUnIHN0cm9rZS13aWR0aD0nMScgc3Ryb2tlPScjMmYyZjJmJy8+ICAKPC9zdmc+');
 }
+.icon-eye {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -11px auto auto -11px;
+}
 
 #worksContainer {
     display: none;
@@ -259,14 +266,14 @@ body{
     // margin-left: 300px;
     padding-bottom: 100px;
     .workBlock {
-        
+        position: relative;
         float: left;
         .blockInner {
             position: relative;
             width: 100%;
             img, .darkenLayer {
                 width: 100%;
-                // width: 600px;
+                text-align: center;
             }
             img {
                 display: block;
@@ -322,10 +329,13 @@ body{
                 opacity: 0;
             }
         }
+        .icon-eye {
+            display: none;
+        }
     }
 
 }
-@media (max-width: 449px) {
+@media (max-width: 599px) {
     #middle {
         position: absolute;
         top: 10px;
@@ -347,8 +357,12 @@ body{
         margin-top: 570px;
         .workBlock {
             width: 70%;
-            margin: 2% auto;
+            margin: 3% auto;
             float: none;
+            
+            .icon-eye {
+                display: block;
+            }
             
         }
         .workBlock.rightSide {
@@ -358,8 +372,22 @@ body{
     #contactWrap {
         display: none;
     }
+    #mobileRightNav {
+        display: block;
+        width: 55px;
+        height: 55px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: center;
+        z-index: 12;
+        i {
+            color: #fff;
+            font-size: 36px;
+        }
+    }
 }
-@media (min-width: 450px) {
+@media (min-width: 600px) {
     #middle {
         position: absolute;
         top: 20px;
@@ -379,6 +407,9 @@ body{
     }
     #contactWrap {
         display: block;
+    }
+    #mobileRightNav {
+        display: none;
     }
 }
 @media (min-width: 800px) {

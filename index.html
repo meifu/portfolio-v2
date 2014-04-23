@@ -13,29 +13,31 @@
   <script src='vendor/modernizr/modernizr.js'></script>
 </head>
 <body>
-  <div id='middle'></div>
-  <div class='clearfix' id='container'>
-    <div class='section' id='sectionHTML'>
-      <img alt='HTML5' class='topicPic' src='img/html5.png'>
-      <svg id='svg1left'></svg>
-      <svg id='svg1right'></svg>
+  <div id='outerWrap'>
+    <div id='middle'></div>
+    <div class='clearfix' id='container'>
+      <div class='section' id='sectionHTML'>
+        <img alt='HTML5' class='topicPic' src='img/html5.png'>
+        <svg id='svg1left'></svg>
+        <svg id='svg1right'></svg>
+      </div>
+      <div class='section' id='sectionCSS'>
+        <img alt='CSS3' class='topicPic' src='img/css3.png'>
+        <svg id='svg2left'></svg>
+        <svg id='svg2right'></svg>
+      </div>
+      <div class='section' id='sectionJS'>
+        <img alt='javascript' class='topicPic' src='img/javascript.jpg'>
+        <svg id='svg3left'></svg>
+        <svg id='svg3right'></svg>
+      </div>
+      <div class='section' id='sectionOTHER'>
+        <svg id='svg4left'></svg>
+        <svg id='svg4right'></svg>
+      </div>
     </div>
-    <div class='section' id='sectionCSS'>
-      <img alt='CSS3' class='topicPic' src='img/css3.png'>
-      <svg id='svg2left'></svg>
-      <svg id='svg2right'></svg>
-    </div>
-    <div class='section' id='sectionJS'>
-      <img alt='javascript' class='topicPic' src='img/javascript.jpg'>
-      <svg id='svg3left'></svg>
-      <svg id='svg3right'></svg>
-    </div>
-    <div class='section' id='sectionOTHER'>
-      <svg id='svg4left'></svg>
-      <svg id='svg4right'></svg>
-    </div>
+    <div class='clearfix' id='worksContainer'></div>
   </div>
-  <div class='clearfix' id='worksContainer'></div>
   <div id='contactWrap'>
     <ul>
       <li>
@@ -104,6 +106,12 @@
         </a>
       </li>
     </ul>
+  </div>
+  <div id='mobileRightNav'>
+    <i class='icon-mail-3'></i>
+  </div>
+  <div id='mobileContact'>
+    <a href='mailto:schwarzmeifu@gmail.com' target='blank'>schwarzmeifu@gmail.com</a>
   </div>
   <script data-main='app/main' src='vendor/requirejs/require.js'></script>
 </body>

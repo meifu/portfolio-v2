@@ -12,26 +12,27 @@
   %link{ :rel => "stylesheet", :href => "app/styles/main.css"}
   %script{ :src => "vendor/modernizr/modernizr.js"}
 %body
-  %div#middle
-  %div#container.clearfix
-      
-    %div.section#sectionHTML
-      %img.topicPic{ :src => "img/html5.png", :alt => "HTML5"}
-      %svg#svg1left
-      %svg#svg1right
-    %div.section#sectionCSS
-      %img.topicPic{ :src => "img/css3.png", :alt => "CSS3"}
-      %svg#svg2left
-      %svg#svg2right
-    %div.section#sectionJS
-      %img.topicPic{ :src => "img/javascript.jpg", :alt => "javascript"}
-      %svg#svg3left
-      %svg#svg3right
-    %div.section#sectionOTHER
-      %svg#svg4left
-      %svg#svg4right
+  %div#outerWrap
+    %div#middle
+    %div#container.clearfix
+        
+      %div.section#sectionHTML
+        %img.topicPic{ :src => "img/html5.png", :alt => "HTML5"}
+        %svg#svg1left
+        %svg#svg1right
+      %div.section#sectionCSS
+        %img.topicPic{ :src => "img/css3.png", :alt => "CSS3"}
+        %svg#svg2left
+        %svg#svg2right
+      %div.section#sectionJS
+        %img.topicPic{ :src => "img/javascript.jpg", :alt => "javascript"}
+        %svg#svg3left
+        %svg#svg3right
+      %div.section#sectionOTHER
+        %svg#svg4left
+        %svg#svg4right
 
-  %div#worksContainer.clearfix
+    %div#worksContainer.clearfix
   
   %div#contactWrap
     %ul
@@ -75,6 +76,11 @@
           %span.hover
             %span.valign
               %span.vertical bitbucket
+
+  %div#mobileRightNav
+    %i{ :class => "icon-mail-3"}
+  %div#mobileContact
+    %a{ :href => "mailto:schwarzmeifu@gmail.com", :target => "blank"} schwarzmeifu@gmail.com
 
   %script{ :"data-main" => "app/main", :src => "vendor/requirejs/require.js"}
 

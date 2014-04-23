@@ -4,7 +4,6 @@ define([
 	,'backbone'
 	,'text!templates/navTempl.html'
 	,'text!templates/workTempl.html'
-	// ,'glidejs'
 	,'model/SkillModel'
 	,'model/WorksModel'
 ], function($, _, Backbone, NavTempl, WorkTempl, SkillModel, WorkModel) {
@@ -79,7 +78,7 @@ define([
 		},
 
 		touchUnfocusWork: function(e) {
-			window.setTimeout(function(){
+			window.setTimeout(function() {
 				$('.workBlock .darkenLayer').css('opacity',1);
 			}, 1000);
 			
