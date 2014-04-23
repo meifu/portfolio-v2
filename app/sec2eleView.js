@@ -86,8 +86,8 @@ define([
 				item.animate({'transform': 't0 ' + translateY2}, 1);
 			});
 			this.topicImg.animate({
-				'bottom': -translateY2*0.9,
-				'left': -translateY2*0.4
+				'bottom': -translateY2*0.7,
+				'left': -translateY2*0.5
 			}, 1);
 		},
 

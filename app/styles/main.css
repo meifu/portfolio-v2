@@ -745,6 +745,8 @@ body {
       opacity: 1; }
   #worksContainer .workBlock.rightSide {
     float: right; }
+  #worksContainer .workBlock.focus .blockInner .workDes {
+    opacity: 1; }
   #worksContainer .workBlock.focus .blockInner .darkenLayer {
     opacity: 0; }
 

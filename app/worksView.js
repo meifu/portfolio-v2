@@ -70,13 +70,11 @@ define([
 		},
 
 		touchFocusWork: function(e) {
-			// $('.workBlock .darkenLayer').css('opacity',0);
-			// $(e.target).parent('.workBlock').css('opacity',0);
-			// $(e.target).parent('.workBlock').toggleClass('focus');
-			if ($(e.target).parent('.workBlock').hasClass('focus')) {
-				$(e.target).parent('.workBlock').removeClass('focus');
+			// alert($(e.target).parents('.workBlock').attr('id'));
+			if ($(e.target).parents('.workBlock').hasClass('focus')) {
+				$(e.target).parents('.workBlock').removeClass('focus');
 			} else {
-				$(e.target).parent('.workBlock').addClass('focus');
+				$(e.target).parents('.workBlock').addClass('focus');
 			}
 		},
 

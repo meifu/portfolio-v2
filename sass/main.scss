@@ -315,6 +315,9 @@ body{
     }
     .workBlock.focus {
         .blockInner {
+            .workDes {
+                opacity: 1;
+            }
             .darkenLayer {
                 opacity: 0;
             }
