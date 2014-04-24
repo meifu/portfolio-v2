@@ -20,10 +20,18 @@ require.config({
 });
 
 require([
+	'jquery',
 	'backbone',
 	'router'
 	// ,'app'
 	,'indexView'
-], function(Backbone, Router, IDV){
+], function($, Backbone, Router, IDV){
 	Backbone.history.start();
+	$('#mobileRightNav').click(function(){
+		toggleRightNav();
+	});
+
+	function toggleRightNav() { 
+		$('#mobileContact').toggleClass('open');
+	}
 });

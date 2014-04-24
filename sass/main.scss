@@ -335,7 +335,44 @@ body{
     }
 
 }
+#mobileContact {
+    position: absolute;
+    right: -70%;
+    top: 0;
+    width: 70%;
+    height: 100%;
+    z-index: 100;
+    background-color: #fff;
+    text-align: center;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    display: none;
+    #mobileContactInner {
+        position: relative;
+        float: left;
+        width: 100%;
+        a {
+            margin: 1px 0 1px 0;
+            padding: 20px 0;
+            display: block;
+            border-bottom: solid 1px #555;
+            color: #333;
+            text-decoration: none;
+            word-wrap: break-word;
+            width: 100%;
+        }
+    }
+    
+}
+#mobileContact.open {
+    right: 0%;
+}
 @media (max-width: 599px) {
+    body {
+        overflow-x: hidden;
+    }
     #middle {
         position: absolute;
         top: 10px;
@@ -378,16 +415,23 @@ body{
         height: 55px;
         position: absolute;
         top: 0;
-        right: 0;
+        left: -55px;
         text-align: center;
-        z-index: 12;
+        z-index: 99;
+        background-color: #715f85;
         i {
             color: #fff;
             font-size: 36px;
         }
     }
+    #mobileContact {
+        display: block;
+    }
 }
 @media (min-width: 600px) {
+    body {
+        overflow-x: visible;
+    }
     #middle {
         position: absolute;
         top: 20px;
@@ -408,9 +452,10 @@ body{
     #contactWrap {
         display: block;
     }
-    #mobileRightNav {
+    #mobileRightNav, #mobileContact {
         display: none;
     }
+    
 }
 @media (min-width: 800px) {
     #middle {

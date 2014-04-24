@@ -77,10 +77,21 @@
             %span.valign
               %span.vertical bitbucket
 
-  %div#mobileRightNav
-    %i{ :class => "icon-mail-3"}
   %div#mobileContact
-    %a{ :href => "mailto:schwarzmeifu@gmail.com", :target => "blank"} schwarzmeifu@gmail.com
+    %div#mobileContactInner
+      %div#mobileRightNav
+        %i{ :class => "icon-menu"}
+      %a{ :href => "mailto:schwarzmeifu@gmail.com", :target => "blank"} 
+        %i.icon-mail-3
+        schwarzmeifu@gmail.com
+      %a{ :href => "https://github.com/meifu", :target => "blank"}
+        %i.icon-github
+        https://github.com/meifu
+      %a{ :href => "https://bitbucket.org/meifu/profile/repositories", :target => "blank"}
+        %i.icon-bitbucket
+        %span https://bitbucket.org/meifu/
+        %br
+        %span profile/repositories
 
   %script{ :"data-main" => "app/main", :src => "vendor/requirejs/require.js"}
 

@@ -27,7 +27,6 @@ define([
     },
 
     index: function() {
-      // console.log('this is router');
       var indexObj = new IndexView();
     },
 
