@@ -95,10 +95,14 @@ module.exports = function(grunt) {
 
     // Minify the distribution CSS.
     cssmin: {
-      release: {
-        files: {
-          "dist/styles.min.css": ["dist/styles.css"]
-        }
+      // release: {
+      //   files: {
+      //     "dist/styles.min.css": ["dist/styles.css"]
+      //   }
+      // }
+      minify: {
+        src: 'app/styles/main.css',
+        dest: 'app/css/main.css'
       }
     },
 
